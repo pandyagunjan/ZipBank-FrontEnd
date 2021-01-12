@@ -35,4 +35,12 @@ export class LoginService {
       }
     });
   }
+
+  isAuthenticated(): boolean {
+    if (sessionStorage.getItem('jwt')){
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

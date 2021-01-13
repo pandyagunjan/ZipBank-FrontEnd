@@ -9,9 +9,8 @@ export class AccountListService {
   constructor(private http: HttpClient) { }
 
   // tslint:disable-next-line:typedef
-  retrieveAllAccounts()
+  retrieveAllAccounts(id)
   {
-    return this.http.get<Account[]>(`http://localhost:8080/myaccount/`);
-
+    return this.http.get<Account[]>(`http://localhost:8080/myaccount/getAll/${id}`);
   }
 }

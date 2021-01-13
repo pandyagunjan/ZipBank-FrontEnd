@@ -34,12 +34,12 @@ export class ListAccountsComponent implements OnInit {
   // tslint:disable-next-line:typedef
   getAllAccounts()
   {
-    this.listService.retrieveAllAccounts().subscribe(
+    this.listService.retrieveAllAccounts(1).subscribe(
       response => {
         console.log(response);
         // @ts-ignore
-        this.accounts = response;
-      }
+        this.accounts = response; },
+    error => console.log('couldn\'t get because', error)
     );
   }
 

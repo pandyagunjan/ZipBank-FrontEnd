@@ -1,0 +1,124 @@
+<div class = "container"> 
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <h3>Personal</h3>
+        <label>
+            First Name:
+            <input type="text" formControlName="firstName" required>
+        </label>
+      
+        <label>
+            Middle Name:
+            <input type="text" formControlName="middleName">
+        </label>
+
+        <label>
+            Last Name:
+            <input type="text" formControlName="lastName">
+        </label>
+
+        <label>
+            Date Of Birth:
+            <input type="text" formControlName="dateOfBirth">
+        </label>
+
+        <label>
+            Email:
+            <input type="text" formControlName="email">
+        </label>
+
+        <label>
+            Phone Number:
+            <input type="text" formControlName="phoneNumber">
+        </label>
+
+        <label>
+            Social Security Number:
+            <input type="text" formControlName="socialSecurity">
+        </label>
+                
+        <div formGroupName="address">
+          <h3>Address</h3>
+      
+          <label>
+            Address Line 1:
+            <input type="text" formControlName="firstLine">
+          </label>
+
+          <label>
+            Address Line 2:
+            <input type="text" formControlName="secondLine">
+          </label>
+      
+          <label>
+            City:
+            <input type="text" formControlName="city">
+          </label>
+          
+          <label>
+            State:
+            <input type="text" formControlName="state">
+          </label>
+      
+          <label>
+            Zip Code:
+            <input type="text" formControlName="zipcode">
+          </label>
+        </div>
+
+        <div formGroupName = "login">
+            <h3>Login Information</h3>
+            <label>
+                Username:
+                <input type="text" formControlName="username">
+            </label>
+
+            <label>
+                Password:
+                <input type="text" formControlName="password">
+              </label>
+        </div>
+
+        <div formArrayName = "accounts">
+            <h3>Account Setup</h3>
+            <div *ngFor="let accountsGroup of accountsArray.controls; let i = index;" [formGroupName] = "i">
+                    <label>
+                        Account type:
+                    <input type="text" formControlName = "accountType">
+                    </label>
+                    
+                    <div formArrayName = "transactions">
+                        <div *ngFor="let transactionsGroup of transactionsArray.controls; let j = index;" [formGroupName] = "j">
+                            <label>
+                                Deposit amount:
+                            <input type="text" formControlName = "transactionAmount">
+                            </label>
+
+                            <div formArrayName = "accounts">
+                                <div *ngFor="let transactionsAccountGroup of transactionAccountsArray.controls; let k = index;" [formGroupName] = "k">
+                                    <label>
+                                        Account number:
+                                    <input type="text" formControlName = "accountNumber">
+                                    </label>
+
+                                    <label>
+                                        Routing number:
+                                    <input type="text" formControlName = "routingNumber">
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+            </div>
+        </div>
+      
+      
+        <button type="submit" >Submit</button>
+      </form>
+      
+      <p>
+        {{ profileForm.value | json }}
+      </p>
+
+</div>
+

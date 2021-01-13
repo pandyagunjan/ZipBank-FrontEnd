@@ -7,7 +7,8 @@ import {ListAccountsComponent} from './list-accounts/list-accounts.component';
 const routes: Routes = [
   {path: '', component: AccountPageComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'myaccount/all/:id', component: ListAccountsComponent}
+  {path: 'myaccount/all/:id', component: ListAccountsComponent},
+  {path: 'myaccount/:url', component: AccountPageComponent}
 ];
 
 @NgModule({

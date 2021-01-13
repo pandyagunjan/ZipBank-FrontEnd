@@ -10,13 +10,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
 import { AccountPageComponent } from './account-page/account-page.component';
+import { ListAccountsComponent } from './list-accounts/list-accounts.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-
+    ListAccountsComponent
     RegistrationComponent,
     ProfileComponent
     AccountPageComponent

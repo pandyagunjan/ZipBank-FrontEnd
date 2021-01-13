@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "front-end-zip-bank"
+  "defaultProject": "front-end-zip-bank",
+  "cli": {
+    "analytics": "6e22022a-c34d-44be-8192-2e3134d50afc"
+  }
 }

@@ -11,7 +11,8 @@ const routes: Routes = [
   {path: '', component: AccountPageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'myaccount/all/:id', component: ListAccountsComponent},
-  {path: 'openaccount', component: RegistrationComponent}
+  {path: 'openaccount', component: RegistrationComponent},
+  {path: 'myaccount/:url', component: AccountPageComponent}
 ];
 
 @NgModule({

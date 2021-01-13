@@ -9,9 +9,9 @@ export class Account {
     public routingNumber: string,
     public accountType: string,
     public balance: number,
+    public dateOfOpening: Date,
     public interestRate: number,
-    public dateOfOpening: Date
-  )
+    public encryptedUrl: string)
   {
   }
 }
@@ -27,8 +27,7 @@ export class ListAccountsComponent implements OnInit {
   constructor(private router: Router , public listService: AccountListService) { }
 
   ngOnInit(): void {
-
-
+    this.getAllAccounts();
   }
 
   // tslint:disable-next-line:typedef
@@ -43,4 +42,9 @@ export class ListAccountsComponent implements OnInit {
     );
   }
 
+  // tslint:disable-next-line:typedef
+  navigateToAccount(url)
+  {
+    this.router.navigate(['accounts', url]);
+  }
 }

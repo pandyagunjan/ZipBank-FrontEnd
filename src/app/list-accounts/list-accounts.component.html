@@ -1,13 +1,9 @@
 <h2> Accounts </h2>
-<!--<img src="/../images/logo.jpeg" alt="ZipBank">-->
+<img src="images/logo.jpg" alt="ZipBank">
 <header>
   <nav class="navbar navbar-expand-md navbar-light bg-transparent">
-
     <div class="container">
 
-      <button (click)="getAllAccounts()" class="btn btn-success">Press</button>
-    </div>
-    <div class="container">
       <table class="table">
         <thead>
         <tr>
@@ -15,23 +11,20 @@
           <th> Routing Number </th>
           <th> Account Type </th>
           <th> Account Balance </th>
-          <th> Date Of opening </th>
+          <th> Date Of Opening </th>
         </tr>
         </thead>
         <tbody>
-
         <tr *ngFor="let account of accounts">
           <td>{{account.accountNumber}}</td>
           <td>{{account.routingNumber}}</td>
           <td>{{account.accountType}}</td>
           <td>{{account.balance}}</td>
           <td>{{account.dateOfOpening | date | uppercase}}</td>
-<!--          <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>-->
-<!--          <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td>-->
+          <td><button (click)="navigateToAccount(account.encryptedUrl)" class="btn btn-warning">Load Account</button></td>
         </tr>
         </tbody>
       </table>
     </div>
   </nav>
 </header>
-

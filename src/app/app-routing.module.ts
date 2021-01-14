@@ -10,7 +10,7 @@ import {ListAccountsComponent} from './list-accounts/list-accounts.component';
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'accountpage', component: AccountPageComponent},
-  {path: 'myaccount/all/:id', component: ListAccountsComponent},
+  {path: 'myaccount', component: ListAccountsComponent},
   {path: 'openaccount', component: RegistrationComponent},
   {path: 'myaccount/:url', component: AccountPageComponent}
 ];

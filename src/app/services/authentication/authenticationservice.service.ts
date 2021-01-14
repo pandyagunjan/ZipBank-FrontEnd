@@ -5,6 +5,12 @@ import { API_URL} from '../../app.apiurl';
 
 export const TOKEN = 'token';
 export const AUTHENTICATED_USER = 'authenticatedUser';
+const httpOption = {
+  headers: new HttpHeaders({
+    'Access-Control-Allow-Origin': '*',
+    Authorization: ''
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +29,8 @@ export class AuthenticationService {
     `${API_URL}/authenticate`, {
       username,
       password
-    }
+    },
+    httpOption
   ).pipe(
     map(
       response => {

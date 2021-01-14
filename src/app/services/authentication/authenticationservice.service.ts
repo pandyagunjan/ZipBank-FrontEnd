@@ -24,7 +24,7 @@ export class AuthenticationService {
   getAuthenticatedUser = () => {
     return sessionStorage.getItem(AUTHENTICATED_USER);
   }
-
+// use .jwt at line 38 to properly note token
   executeAuthService = (username: string, password: string) => this.http.post<any>(
     `${API_URL}/authenticate`, {
       username,
@@ -35,7 +35,7 @@ export class AuthenticationService {
     map(
       response => {
         sessionStorage.setItem(AUTHENTICATED_USER, username);
-        sessionStorage.setItem(TOKEN, `Bearer ${response.token}`);
+        sessionStorage.setItem(TOKEN, `Bearer ${response.jwt}`);
       }
     )
   )

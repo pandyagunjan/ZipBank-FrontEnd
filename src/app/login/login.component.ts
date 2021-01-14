@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.executeAuthService(this.username, this.password)
       .subscribe(
         response => {
-          this.router.navigateByUrl(`/myaccount/all/:id`);
+          this.router.navigateByUrl(`/myaccount`);
           this.invalidLogin = false;
           return response;
         },

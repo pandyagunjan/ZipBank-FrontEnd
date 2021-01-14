@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService} from '../services/login/login.service';
 import {Router} from '@angular/router';
 import {AuthenticationService} from '../services/authentication/authenticationservice.service';
 
@@ -16,16 +15,11 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private loginService: LoginService,
     private authenticationService: AuthenticationService
   ) { }
 
   ngOnInit(): void {
-    // this.loginService
-    //   .errorMessage
-    //   .subscribe(errorMessage => {
-    //     this.error = errorMessage;
-    //   });
+
   }
 
   handleAuth = () => {

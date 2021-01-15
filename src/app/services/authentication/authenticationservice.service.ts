@@ -49,7 +49,7 @@ export class AuthenticationService {
           Authorization: 'Bearer ' + TOKEN,
         })
       };
-      return this.http.get(`${API_URL}/myaccount/all/:id`);
+      return this.http.get(`${API_URL}/myaccount`);
 
     }
   }

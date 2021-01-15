@@ -8,6 +8,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountPageComponent } from './account-page/account-page.component';
 import { ListAccountsComponent } from './list-accounts/list-accounts.component';
+
 import { ProfileComponent } from './profile/profile.component';
 import { AddressComponent } from './address/address.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +21,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { EmailComponent } from './email/email.component';
 import { PhoneComponent } from './phone/phone.component';
 import { DeleteCustomerComponent } from './delete-customer/delete-customer.component';
+import {LogoutComponent} from './logout/logout.component';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +32,7 @@ import { DeleteCustomerComponent } from './delete-customer/delete-customer.compo
     RegistrationComponent,
     ProfileComponent,
     AccountPageComponent,
+    LogoutComponent,
     AddressComponent,
     EmailComponent,
     PhoneComponent,

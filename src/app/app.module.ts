@@ -8,6 +8,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountPageComponent } from './account-page/account-page.component';
 import { ListAccountsComponent } from './list-accounts/list-accounts.component';
+
 import { ProfileComponent } from './profile/profile.component';
 import { AddressComponent } from './address/address.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,6 +29,7 @@ import { PhoneComponent } from './phone/phone.component';
     RegistrationComponent,
     ProfileComponent,
     AccountPageComponent,
+    LogoutComponent
     AddressComponent,
     EmailComponent,
     PhoneComponent,

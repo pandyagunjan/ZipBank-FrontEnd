@@ -16,10 +16,10 @@ import { AddressComponent} from './address/address.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'accountpage', component: AccountPageComponent},
   {path: 'myaccount', component: ListAccountsComponent, canActivate: [AuthGuardGuard]},
   {path: 'openaccount', component: RegistrationComponent},
-
   {path: 'myaccount/:url', component: AccountPageComponent},
   {path: 'logout', component: LogoutComponent, canActivate: [AuthGuardGuard]},
   {path: 'myaccount/profile', component: ProfileComponent},

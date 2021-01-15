@@ -86,8 +86,6 @@ export class RegistrationComponent implements OnInit{
     return ((this.profileForm.controls.accounts as FormArray).at(0).get('transactions') as FormArray).at(0).get('accounts');
   }
 
-
-
   // tslint:disable-next-line:typedef
   onSubmit() {
     // TODO: Use EventEmitter with form value

@@ -1,0 +1,15 @@
+<div class = "container">
+    <h3>Edit Phone Number
+        <mat-button class = close mat-dialog-close>X</mat-button>
+    </h3>
+
+        <form [formGroup] = "phoneForm" (submit) = "onSubmit()">
+            <label>
+                Phone Number
+            <input type="text" formControlName = "phoneNumber">
+            </label>
+
+         </form>
+
+         <button id=save (click) = "onSubmit()" type = "submit" mat-dialog-close>Save</button>
+</div>

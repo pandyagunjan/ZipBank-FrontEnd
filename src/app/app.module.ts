@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AccountPageComponent } from './account-page/account-page.component';
 import { ListAccountsComponent } from './list-accounts/list-accounts.component';
 import {HttpInterceptService} from './services/http-intercept/http-intercept.service';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {HttpInterceptService} from './services/http-intercept/http-intercept.ser
     ListAccountsComponent,
     RegistrationComponent,
     ProfileComponent,
-    AccountPageComponent
+    AccountPageComponent,
+    LogoutComponent
 
   ],
   imports: [

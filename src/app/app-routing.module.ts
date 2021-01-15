@@ -1,18 +1,24 @@
 import { registerLocaleData } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuardGuard} from './services/guards/auth-guard.guard';
 
 import { LoginComponent} from './login/login.component';
 
 import { RegistrationComponent} from './registration/registration.component';
 import { AccountPageComponent } from './account-page/account-page.component';
 import {ListAccountsComponent} from './list-accounts/list-accounts.component';
+import {LogoutComponent} from './logout/logout.component';
+import {ProfileComponent} from './profile/profile.component';
+
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'accountpage', component: AccountPageComponent},
-  {path: 'myaccount', component: ListAccountsComponent},
+  {path: 'myaccount', component: ListAccountsComponent, canActivate: [AuthGuardGuard]},
   {path: 'openaccount', component: RegistrationComponent},
-  {path: 'myaccount/:url', component: AccountPageComponent}
+  {path: 'myaccount/:url', component: AccountPageComponent},
+  {path: 'profile', component: ProfileComponent},
+  {path: 'logout', component: LogoutComponent, canActivate: [AuthGuardGuard]}
 ];
 
 @NgModule({

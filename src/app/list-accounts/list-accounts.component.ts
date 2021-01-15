@@ -38,7 +38,10 @@ export class ListAccountsComponent implements OnInit {
         console.log(response);
         // @ts-ignore
         this.accounts = response; },
-    error => console.log('couldn\'t get because', error)
+    error => {
+        this.message = error;
+      }
+
     );
   }
 

@@ -8,7 +8,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./delete-customer.component.css']
 })
 export class DeleteCustomerComponent implements OnInit {
-
+  message: string;
+  invalidRequest = false;
   constructor(private router: Router ,public listService: AccountListService) { }
 
   ngOnInit(): void {
@@ -21,7 +22,10 @@ export class DeleteCustomerComponent implements OnInit {
         console.log(response);
         // @ts-ignore
         this.accounts = response; },
-      error => console.log('could not get because', error)
+      error => {
+        this.message = 'Profile cannot be deleted , accounts with balance present';
+        this.invalidRequest = true;
+      }
     );
   }
   // tslint:disable-next-line:typedef

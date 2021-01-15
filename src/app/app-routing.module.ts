@@ -12,18 +12,19 @@ import {ListAccountsComponent} from './list-accounts/list-accounts.component';
 import {LogoutComponent} from './logout/logout.component';
 import { ProfileComponent} from './profile/profile.component';
 import { AddressComponent} from './address/address.component';
+import {DeleteCustomerComponent} from './delete-customer/delete-customer.component';
 
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'accountpage', component: AccountPageComponent},
   {path: 'myaccount', component: ListAccountsComponent, canActivate: [AuthGuardGuard]},
   {path: 'openaccount', component: RegistrationComponent},
-
-  {path: 'myaccount/:url', component: AccountPageComponent},
-  {path: 'logout', component: LogoutComponent, canActivate: [AuthGuardGuard]},
   {path: 'myaccount/profile', component: ProfileComponent},
-
+  {path: 'myaccount/:url', component: AccountPageComponent},
+  {path: 'myaccount/profile/delete', component: DeleteCustomerComponent},
+  {path: 'logout', component: LogoutComponent, canActivate: [AuthGuardGuard]}
 ];
 
 @NgModule({

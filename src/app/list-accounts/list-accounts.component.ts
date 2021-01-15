@@ -27,8 +27,7 @@ export class ListAccountsComponent implements OnInit {
   constructor(private router: Router , public listService: AccountListService) { }
 
   ngOnInit(): void {
-
-
+    this.getAllAccounts();
   }
 
   // tslint:disable-next-line:typedef

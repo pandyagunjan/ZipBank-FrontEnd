@@ -86,8 +86,6 @@ export class RegistrationComponent implements OnInit{
     return ((<FormArray>this.profileForm.controls['accounts']).at(0).get('transactions') as FormArray).at(0).get('accounts')
   }
 
-
-
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.log(this.profileForm.value);

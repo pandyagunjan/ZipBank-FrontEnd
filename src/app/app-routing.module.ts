@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'openaccount', component: RegistrationComponent},
 
   {path: 'myaccount/:url', component: AccountPageComponent},
-  {path: 'logout', component: LogoutComponent, canActivate: [AuthGuardGuard]}
+  {path: 'logout', component: LogoutComponent, canActivate: [AuthGuardGuard]},
   {path: 'myaccount/profile', component: ProfileComponent},
 
 ];

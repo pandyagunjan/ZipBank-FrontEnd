@@ -25,12 +25,19 @@
                         State
                     <input type="text" formControlName = "state">
                     </label>
-        
+                    <!-- <mat-form-field appearance="fill">
+                        <mat-label>State</mat-label>
+                        <mat-select formControlName = "state"  panelClass= "panel">
+                          <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+         -->
                     <label class = "zipcode">
                         Zipcode
                     <input type="text" formControlName = "zipcode">
                     </label>
             </div>
          </form>
+
+         <button id=save (click) = "onSubmit()" type = "submit" mat-dialog-close>Save</button>
     
-    <button id=save (click) = "onSubmit()" type = "submit"  mat-dialog-close>Save<button>

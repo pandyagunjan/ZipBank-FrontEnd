@@ -11,6 +11,7 @@ export class AccountListService {
   // tslint:disable-next-line:typedef
   retrieveAllAccounts(id)
   {
-    return this.http.get<Account[]>(`http://localhost:8080/myaccount/getAll/${id}`);
+   // return this.http.get<Account[]>(`http://localhost:8080/myaccount/getAll/${id}`);
+     return this.http.get<Account[]>(`http://localhost:8080/myaccount`);
   }
 }

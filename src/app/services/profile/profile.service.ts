@@ -25,5 +25,24 @@ export class ProfileService {
     );
   }
 
+  emailUrl = `http://localhost:8080/myaccount/profile/email`;
+
+  saveEmail(formData)
+  {
+    this.http.put(this.emailUrl, formData).subscribe(
+      data=>console.log("success!",data),
+      error=>console.log("couldn't post because",error)
+    );
+  }
+
+  phoneUrl = `http://localhost:8080/myaccount/profile/phone`;
+
+  savePhone(formData)
+  {
+    this.http.put(this.phoneUrl, formData).subscribe(
+      data=>console.log("success!",data),
+      error=>console.log("couldn't post because",error)
+    );
+  }
   
 }

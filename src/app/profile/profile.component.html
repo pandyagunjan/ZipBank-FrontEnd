@@ -17,7 +17,7 @@
                 <li>{{profiles.address.city}}, {{profiles.address.state}} {{profiles.address.zipcode}}</li>
             </div>
             <div class = col3>
-                <button (click) = "editAddress()">Edit</button>
+                <button class = "btn btn-warning" (click) = "editAddress()">Edit</button>
             </div>
         </div>
         <div class = row>
@@ -28,7 +28,7 @@
                 {{profiles.email}}
             </div>
             <div class = col3>
-                <button class = edit>Edit</button>
+                <button class = "btn btn-warning" (click) = "editEmail()">Edit</button>
             </div>
         </div>
         <div class = row>
@@ -39,7 +39,7 @@
                 {{profiles.phoneNumber}}
             </div>
             <div class = col3>
-                <button class = edit>Edit</button>
+                <button class = "btn btn-warning" (click) = "editPhone()">Edit</button>
             </div>
         </div>
     </ul>

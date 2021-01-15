@@ -29,17 +29,6 @@ label {
      align-items: center;
  }
 
- .zipcode{
-    float: right; 
-    width: 49%;
-    margin-top: 0px;
- }
-
- .state{
-  float: left; 
-  width: 49%;
-  margin-top: 0px;
-}
 
  #save{
      text-align: center;
@@ -48,17 +37,9 @@ label {
      background-color:rgba(60, 211, 93, 0.993);
  }
 
-::ng-deep .mat-form-field{
-  min-width: 1px !important;
-}
 
  #close{
     background-color: white;
     width: 20px;
     float: right;
- }
-
- .line{
-     margin-top:0px;
-     padding-top: 0px;
  }

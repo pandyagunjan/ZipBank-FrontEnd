@@ -3,6 +3,9 @@ import { ProfileService } from '../services/profile/profile.service';
 import { MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {MatDialogRef} from "@angular/material/dialog"
 import { AddressComponent } from '../address/address.component';
+import {EmailComponent} from '../email/email.component';
+import {PhoneComponent} from '../phone/phone.component';
+
 
 
 export class Profile {
@@ -56,6 +59,19 @@ export class ProfileComponent implements OnInit {
   editAddress()
   {
     this.dialog.open(AddressComponent);
+    this.dialog.afterAllClosed.subscribe(()=>this.getProfile()); //refreshes the page after update
   }
+
+  editEmail()
+  {
+    this.dialog.open(EmailComponent);
+    this.dialog.afterAllClosed.subscribe(()=>this.getProfile()); //refreshes the page after update
+  }
+
+  editPhone() {
+    this.dialog.open(PhoneComponent);
+    this.dialog.afterAllClosed.subscribe(()=>this.getProfile()); //refreshes the page after update
+  }
+
 
 }

@@ -19,6 +19,7 @@ import { MatInputModule} from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { EmailComponent } from './email/email.component';
 import { PhoneComponent } from './phone/phone.component';
+import { DeleteCustomerComponent } from './delete-customer/delete-customer.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PhoneComponent } from './phone/phone.component';
     AddressComponent,
     EmailComponent,
     PhoneComponent,
+    DeleteCustomerComponent,
 
   ],
   entryComponents: [AddressComponent, EmailComponent, PhoneComponent],

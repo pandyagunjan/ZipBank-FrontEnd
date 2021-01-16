@@ -21,13 +21,18 @@ export class PhoneComponent implements OnInit {
   ngOnInit(): void {
 
     this.phoneForm = this.fb.group({
-      phoneNumber: [,Validators.required],
+      phoneNumber: [,[Validators.required,Validators.pattern('^[0-9]{10}$')]]
     })
+  }
+
+  get phoneNumber(){
+    return this.phoneForm.get("phoneNumber");
   }
 
   onSubmit(){
     console.log(this.phoneForm.value)
-     this.profileService.savePhone(this.phoneForm.value)
+    this.phoneForm.get("phoneNumber")
+    this.profileService.savePhone(this.phoneForm.value)
   }
 
   onNoClick(): void{

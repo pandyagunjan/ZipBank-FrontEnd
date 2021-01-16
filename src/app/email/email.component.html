@@ -4,12 +4,18 @@
     </h3>
 
         <form [formGroup] = "emailForm" (submit) = "onSubmit()">
-            <label>
-                Email
+            <label>Email </label>
             <input type="text" formControlName = "email">
-            </label>
-
+            <div *ngIf = "email.invalid && (email.dirty || email.touched)" class = "alert">
+                <div *ngIf = "email.errors.required">
+                    email is required
+                </div>
+                <div *ngIf = "email.errors.email">
+                    email must be valid
+                </div>
+            </div>
          </form>
 
-         <button id=save (click) = "onSubmit()" type = "submit" mat-dialog-close>Save</button>
+         <button id=save (click) = "onSubmit()" type = "submit" mat-dialog-close
+         [disabled] = "emailForm.invalid">Save</button>
 </div>

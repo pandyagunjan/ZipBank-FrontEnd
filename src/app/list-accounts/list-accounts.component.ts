@@ -50,4 +50,10 @@ export class ListAccountsComponent implements OnInit {
   {
     this.router.navigate(['myaccount', url]);
   }
+
+  // tslint:disable-next-line:typedef
+  createAccount()
+  {
+    //this.router.navigate(['myaccount', url]);
+  }
 }

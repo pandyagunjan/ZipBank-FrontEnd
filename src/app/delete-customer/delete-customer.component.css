@@ -1,0 +1,48 @@
+
+h1{
+  background-color: rgb(14, 107, 136);
+  margin-top: 0px;
+  height: 100px;
+  display:flex;
+  align-items: center;
+}
+
+ul{
+  width: 100%
+}
+
+.title{
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.container{
+  margin-top: 0px;
+  display:flex;
+}
+
+.row{
+  padding:20px;
+  margin:10px;
+  height: 150px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color:rgb(245, 239, 239);
+}
+
+.col1{
+  flex: 30%;
+  font-size: larger;
+}
+
+.col2{
+  flex: 50%;
+}
+
+.col3{
+  flex: 20%;
+}
+
+

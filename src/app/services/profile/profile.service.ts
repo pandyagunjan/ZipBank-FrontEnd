@@ -12,7 +12,7 @@ export class ProfileService {
 
   retrieveProfile()
   {
-    return this.http.get<any>(this.profileUrl)
+    return this.http.get<any>(this.profileUrl);
   }
 
   addressUrl = `http://localhost:8080/myaccount/profile/address`;
@@ -44,5 +44,5 @@ export class ProfileService {
       error=>console.log("couldn't post because",error)
     );
   }
-  
+
 }

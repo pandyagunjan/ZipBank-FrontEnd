@@ -1,42 +1,135 @@
-:host {
-    display: flex;
-    flex-direction: column;
-    padding-top: 24px;
-  }
-  
-  label {
-    display: block;
-    width: 15em;
-    margin: .5em 0;
-    color: #607D8B;
-    font-weight: bold;
-  }
-  
-  input {
-    height: 2em;
-    font-size: 1em;
-    padding-left: .4em;
-  }
-  
-  button {
-    font-family: Arial, sans-serif;
-    background-color: #eee;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #cfd8dc;
-  }
-  
-  button:disabled {
-    background-color: #eee;
-    color: #ccc;
-    cursor: auto;
-  }
 
-  container{
-      align-content: center;
-  }
+label {
+  display: block;
+  width: 15em;
+  margin: 0 0 0.1em 1.7em;
+  padding: 0.5em 0 0.1em 0;
+  color: #607D8B;
+  font-weight: bold;
+}
+
+input {
+  display: block;
+  height: 2em;
+  font-size: 1em;
+  padding-left: .4em;
+  margin-top: 0;
+  margin: 0 auto;
+  width: 80%;
+}
+
+#emailInput{
+  width: 90%;
+}
+
+#streetInput{
+  width: 90%;
+}
+
+.fiftyInput{
+  margin-left: 1.75em;
+  width: 86%;
+}
+
+.accountInput{
+  margin-left: 1.75em;
+  width: 27%
+}
+
+#accountSelect{
+  margin-left: 1.75em;
+  width: 27%;
+  height: 28px;
+}
+
+#stateSelect{
+  margin-left: 1.75em;
+  width: 79%;
+  height: 28px;
+}
+
+button {
+display:block;
+margin: 0 auto;
+width: 10em;
+}
+
+button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
+}
+
+.clusterContainer{
+  border-width: 1px;
+  padding-bottom: 1.25em;
+  margin-bottom: 1em;
+  background-color:rgb(245, 239, 239);
+}
+
+.container{
+    width: 750px;
+}
+
+h1{
+    background-color: rgb(14, 107, 136);
+    margin-top: 0px;
+    height: 100px;
+    display:flex;
+    align-items: center;
+}
+
+h3{
+  margin-bottom: 0;
+}
+
+.rowContainers{
+  width: 100%;
+}
+
+.title{
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.col1{
+  display:inline-block;
+  width: 33.3%;
+  align-content: center;
+}
+
+.col2{
+  display:inline-block;
+  width: 33.3%
+}
+
+#col2-a{
+  display:inline-block;
+  width: 66.6%
+}
+
+.col3{
+  display:inline-block;
+  width: 33.3%
+}
+
+#col1-a{
+  display:inline-block;
+  width: 66.6%
+}
+
+#col2-b{
+  display:inline-block;
+  width: 33.3%
+}
+
+.col-50{
+  display:inline-block;
+  width: 50%
+}
+
+#col2-login{
+  display:inline-block;
+  width: 50%
+}

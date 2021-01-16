@@ -1,6 +1,6 @@
 label {
     display: block;
-    margin: .5em 0;
+    margin: .25em 0;
     color: #607D8B;
     font-weight: bold;
   }
@@ -13,6 +13,7 @@ label {
     font-size: 1em;
     padding-left: .1em;
     border-radius: 4px;
+    color: black
   }
   
   button {
@@ -29,16 +30,20 @@ label {
      align-items: center;
  }
 
- .zipcode{
-    float: right; 
-    width: 49%;
-    margin-top: 0px;
+  #zipcodeDiv{
+   float:right;
+   width: 49%;
  }
 
- .state{
-  float: left; 
-  width: 49%;
-  margin-top: 0px;
+ #stateDiv{
+   float:left;
+   width: 49%;
+ }
+
+ #state{
+  height:28px;
+  border-radius: 4px;
+  color: black;
 }
 
  #save{
@@ -47,10 +52,6 @@ label {
      margin-top: 15px;
      background-color:rgba(60, 211, 93, 0.993);
  }
-
-::ng-deep .mat-form-field{
-  min-width: 1px !important;
-}
 
  #close{
     background-color: white;

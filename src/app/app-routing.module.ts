@@ -18,13 +18,12 @@ import {DeleteCustomerComponent} from './delete-customer/delete-customer.compone
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'accountpage', component: AccountPageComponent},
+  {path: 'accountpage', component: AccountPageComponent, canActivate: [AuthGuardGuard]},
   {path: 'myaccount', component: ListAccountsComponent, canActivate: [AuthGuardGuard]},
   {path: 'openaccount', component: RegistrationComponent},
-  {path: 'myaccount/profile', component: ProfileComponent},
-  {path: 'myaccount/:url', component: AccountPageComponent},
-  {path: 'myaccount/profile/delete', component: DeleteCustomerComponent},
-  {path: 'logout', component: LogoutComponent, canActivate: [AuthGuardGuard]}
+  {path: 'myaccount/profile', component: ProfileComponent, canActivate: [AuthGuardGuard]},
+  {path: 'myaccount/:url', component: AccountPageComponent, canActivate: [AuthGuardGuard]},
+  {path: 'myaccount/profile/delete', component: DeleteCustomerComponent, canActivate: [AuthGuardGuard]},
 ];
 
 @NgModule({

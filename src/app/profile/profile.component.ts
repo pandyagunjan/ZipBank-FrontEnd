@@ -37,6 +37,7 @@ export class Address{
 export class ProfileComponent implements OnInit {
 
   profiles : Profile;
+  moddedPhone: string;
 
   constructor(private profileService: ProfileService,
     private dialog: MatDialog) {
@@ -50,10 +51,12 @@ export class ProfileComponent implements OnInit {
   {
     this.profileService.retrieveProfile().subscribe(
       response => {
-        console.log(response); //for debugging
+        //console.log(response); //for debugging
         this.profiles = response;
+        //console.log(this.profiles);
+        this.moddedPhone = "("+this.profiles.phoneNumber.substring(0,3)+") "+
+        this.profiles.phoneNumber.substring(3,6)+"-"+this.profiles.phoneNumber.substring(6,10);
       });
-      console.log(this.profiles.email)
   }
 
   editAddress()

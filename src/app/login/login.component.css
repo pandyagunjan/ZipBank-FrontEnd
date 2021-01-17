@@ -5,6 +5,56 @@ p {
 .container {
   justify-content: center;
   display: flex;
-  align-items: center;
+  align-items:center;
   margin-top: 15%;
+
+  
+
+}
+
+.login-container {
+  text-align: center;
+  display: inline;
+  
+  
+}
+
+
+/* .login-container {
+  color:#ff0000;
+  
+} */
+
+.title-container {
+  width: 100%;
+  text-align: center;
+
+}
+
+#UserNPassLink {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+
+}
+
+.input-container {
+  margin-left: 364%;
+  margin-right: 364%;
+  
+}
+
+#titlelink {
+  color: lightblue;
+  background-color: black;
+  border: 5px solid lightblue;
+  line-height: 100px;
+  font-family: 'Bebas Neue', cursive;
+  padding: 10px;
+  
+  
+  
+  font-size: 80px;
+  cursor: -webkit-grabbing;
+  
+  
 }

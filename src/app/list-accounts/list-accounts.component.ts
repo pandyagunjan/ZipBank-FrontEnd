@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {AccountListService} from '../services/account-list/account-list.service';
+import { MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import { CreateaccountComponent } from '../createaccount/createaccount.component';
 
 export class Account {
   constructor(
@@ -24,10 +26,14 @@ export class ListAccountsComponent implements OnInit {
  accounts: Account[];
  message: string;
 
-  constructor(private router: Router , public listService: AccountListService) { }
+  constructor(public router: Router , public listService: AccountListService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getAllAccounts();
+  }
+
+  get myAccounts(){
+    return this.accounts;
   }
 
   // tslint:disable-next-line:typedef
@@ -54,6 +60,7 @@ export class ListAccountsComponent implements OnInit {
   // tslint:disable-next-line:typedef
   createAccount()
   {
-    //this.router.navigate(['myaccount', url]);
+      this.dialog.open(CreateaccountComponent);
+      this.dialog.afterAllClosed.subscribe(() => this.getAllAccounts()); // refreshes the page after update
   }
 }

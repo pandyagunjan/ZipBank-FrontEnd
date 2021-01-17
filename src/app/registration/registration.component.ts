@@ -4,6 +4,48 @@ import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
+export class newUser{
+  firstName?: string;
+  middleName?: string;
+  lastName?: string;
+  dateOfBirth?: string;
+  email?: string;
+  phoneNumber?: string;
+  socialSecurity?: string;
+  address?: Address;
+  login?: Login;
+  accounts?: Account[];
+}
+
+export class Address{
+  firstLine?: string;
+  secondLine?: string;
+  city?: string;
+  state?: string;
+  zipcode?: string;
+}
+
+export class Login{
+  username?: string;
+  password?: string;
+}
+
+export class Account{
+  accountType?: string;
+  transactions?: Transactions[]
+}
+
+export class Transactions{
+  transactionAmount?: any;
+  accounts?: TransAccount[] 
+}
+
+export class TransAccount{
+ accountNumber?: string;
+ routingNumber?: string;
+}
+
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -11,14 +53,25 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RegistrationComponent implements OnInit{
   profileForm: FormGroup;
-
   url = 'http://localhost:8080/openaccount';
+
+    //used to set the form to the object model for JSON payload
+
+    submitNewUser: newUser = {};
+    submitAddress: Address = {};
+    submitLogin: Login = {};
+    submitAccount: Account = {};
+    submitTrans: Transactions = {};
+    submitTransAccount: TransAccount = {};
+    accountArray: Account[] = [];
+    transAcctArray: TransAccount[] = [];
+    transArray: Transactions[] = [];
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
   }
 
   postToServer(){
-    this.http.post(this.url, this.profileForm.value).subscribe(
+    this.http.post(this.url, JSON.stringify(this.submitNewUser)).subscribe(
       data => console.log('success!', data),
       error => console.log('couldn\'t post because', error)
     );
@@ -34,18 +87,17 @@ export class RegistrationComponent implements OnInit{
     socialSecurity: [,[Validators.required, Validators.pattern('^[0-9]{9}$')]], //9 numbers
     email: [,[Validators.required,Validators.email]],
     phoneNumber: [,[Validators.required,Validators.pattern('^[0-9]{10}$')]], //10 numbers
-    address: this.fb.group({
-      firstLine: [, Validators.required],
-      secondLine: [],
-      city: [, [Validators.required, Validators.pattern('^[a-zA-Z](?=[^A-Z\\W])[a-z]*$')]], //capital letter for 1st letter optional, no captialized elsewhere
-      state: [, Validators.required],
-      zipcode: [, [Validators.required,Validators.pattern('^[0-9]{5}$')]] //5 numbers
-    }),
-    login: this.fb.group({
-      username: [, Validators.required],
-      password: [, [Validators.required, Validators.pattern('^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$')]] //min 8 chars, at least 1 uppercase, 1 lowercase, 1 number
-    }),
-    accounts: this.fb.array([this.newAccounts()])
+    firstLine: [, Validators.required],
+    secondLine: [],
+    city: [, [Validators.required, Validators.pattern('^[a-zA-Z](?=[^A-Z\\W])[a-z]*$')]], //capital letter for 1st letter optional, no captialized elsewhere
+    state: [, Validators.required],
+    zipcode: [, [Validators.required,Validators.pattern('^[0-9]{5}$')]], //5 numbers
+    username: [, [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z0-9-_]{8,20}')]], //must start with an alpanumberic, 8-20 characters long
+    password: [, [Validators.required, Validators.pattern('^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$')]], //min 8 chars, at least 1 uppercase, 1 lowercase, 1 number
+    accountType: [,Validators.required],
+    transactionAmount: [, [Validators.required,Validators.pattern('^\\d+\\.\\d\\d$')]], //digits and 2 decimal places
+    accountNumber:[,[Validators.required, Validators.pattern('^[0-9]{10}$')]], //10 digits
+    routingNumber:[,[Validators.required, Validators.pattern('091000022')]]
     });
 
   }
@@ -75,88 +127,81 @@ export class RegistrationComponent implements OnInit{
   }
 
   get firstLine(){
-    return this.profileForm.get("address").get("firstLine");
+    return this.profileForm.get("firstLine");
   }
 
   get city(){
-    return this.profileForm.get("address").get("city");
+    return this.profileForm.get("city");
   }
 
   get state(){
-    return this.profileForm.get("address").get("state");
+    return this.profileForm.get("state");
   }
 
   get zipcode(){
-    return this.profileForm.get("address").get("zipcode");
+    return this.profileForm.get("zipcode");
   }
 
   get username(){
-    return this.profileForm.get("login").get("username");
+    return this.profileForm.get("username");
   }
 
   get password(){
-    return this.profileForm.get("login").get("password");
+    return this.profileForm.get("password");
   }
 
   get accountType(){
-    return this.accountsArray.get("accountType")
+    return this.profileForm.get("accountType")
   }
 
   get transactionAmount(){
-    return this.transactionsArray.get("transactionAmount")
+    return this.profileForm.get("transactionAmount")
   }
 
   get accountNumber(){
-    return this.transactionAccountsArray.get("accountNumber")
+    return this.profileForm.get("accountNumber")
   }
 
   get routingNumber(){
-    return this.transactionAccountsArray.get("routingNumber")
-  }
-
-  // only has 1 element
-  get accountsArray(){
-    return this.profileForm.controls.accounts as FormArray;
-  }
-
-  // only has 1 element hence '0'
-  get transactionsArray(){
-    return (this.profileForm.controls.accounts as FormArray).at(0).get('transactions');
-  }
-
-  // only has 1 element hence '0'
-  get transactionAccountsArray(){
-    return ((this.profileForm.controls.accounts as FormArray).at(0).get('transactions') as FormArray).at(0).get('accounts');
-  }
-
-  newAccounts(){
-    return this.fb.group({
-        accountType: [,Validators.required],
-        transactions: this.fb.array([this.newTransaction()])
-    });
-  }
-
-  newTransaction(){
-    return this.fb.group({
-      transactionAmount: [, [Validators.required,Validators.pattern('^(((\d{1,3},?)(\d{3},?)+|\d{1,3})|\d+)(\.\d{1,2})?$')]], //must be a double XX.XX
-      accounts: this.fb.array([this.newTransactionAcct()])
-    });
-  }
-
-  newTransactionAcct(){
-    return this.fb.group({
-      accountNumber: [, [Validators.required,Validators.minLength(10),Validators.maxLength(10),Validators.pattern('^[0-9]{10}$')]], //10 numbers
-      routingNumber: [, Validators.required,Validators.pattern('091000022')], //must be this number
-    });
+    return this.profileForm.get("routingNumber")
   }
 
   // tslint:disable-next-line:typedef
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    console.log(this.profileForm.value);
+    //console.log(this.profileForm.value);
+    this.setSubmitUser();
+    //console.log(JSON.stringify(this.submitNewUser))
     this.postToServer();
-
   }
 
+  setSubmitUser(){
+    this.submitTransAccount.accountNumber = this.profileForm.get("accountNumber").value;
+    this.submitTransAccount.routingNumber = this.profileForm.get("routingNumber").value;
+    this.transAcctArray.push(this.submitTransAccount);
+    this.submitTrans.accounts = this.transAcctArray;
+    this.submitTrans.transactionAmount = this.profileForm.get("transactionAmount").value;
+    this.transArray.push(this.submitTrans);
+    this.submitAccount.transactions = this.transArray;
+    this.submitAccount.accountType = this.profileForm.get("accountType").value;
+    this.submitNewUser.accounts = this.accountArray;
+    this.accountArray.push(this.submitAccount);
+    this.submitLogin.username = this.profileForm.get("username").value;
+    this.submitLogin.password = this.profileForm.get("password").value;
+    this.submitNewUser.login = this.submitLogin;
+    this.submitAddress.firstLine = this.profileForm.get("firstLine").value;
+    this.submitAddress.secondLine = this.profileForm.get("secondLine").value;
+    this.submitAddress.city = this.profileForm.get("city").value;
+    this.submitAddress.state = this.profileForm.get("state").value;
+    this.submitAddress.zipcode = this.profileForm.get("zipcode").value;
+    this.submitNewUser.address = this.submitAddress;
+    this.submitNewUser.firstName = this.profileForm.get("firstName").value;
+    this.submitNewUser.middleName = this.profileForm.get("middleName").value;
+    this.submitNewUser.lastName = this.profileForm.get("lastName").value;
+    this.submitNewUser.dateOfBirth = this.profileForm.get("dateOfBirth").value;
+    this.submitNewUser.email = this.profileForm.get("email").value;
+    this.submitNewUser.phoneNumber = this.profileForm.get("phoneNumber").value;
+    this.submitNewUser.socialSecurity = this.profileForm.get("socialSecurity").value;
+  }
 
 }

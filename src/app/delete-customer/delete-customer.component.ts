@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AccountListService} from '../services/account-list/account-list.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-delete-customer',
@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 export class DeleteCustomerComponent implements OnInit {
   message: string;
   invalidRequest = false;
-  constructor(private router: Router ,public listService: AccountListService) { }
+  constructor(private router: Router , public listService: AccountListService) { }
 
   ngOnInit(): void {
   }

@@ -12,19 +12,19 @@ account: Account;
   constructor(private router: Router, public listService: AccountListService) { }
 
   ngOnInit(): void {
-    this.getAccount();
+    // this.getAccount();
   }
   // tslint:disable-next-line:typedef
-  getAccount()
-  {
-    this.listService.retrieveAccount('Null').subscribe(
-      response => {
-        console.log(response);
-        // @ts-ignore
-        this.account = response; },
-      error => console.log('couldn\'t get because', error)
-    );
-  }
+  // getAccount()
+  // {
+  //   this.listService.retrieveAccount('Null').subscribe(
+  //     response => {
+  //       console.log(response);
+  //       // @ts-ignore
+  //       this.account = response; },
+  //     error => console.log('couldn\'t get because', error)
+  //   );
+  // }
   // tslint:disable-next-line:typedef
   navigateToTransactions(url)
   {

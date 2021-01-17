@@ -26,6 +26,9 @@ import {TransactionsComponent} from './transactions/transactions.component';
 import {TransactionHistoryComponent} from './transaction-history/transaction-history.component';
 import { CreateaccountComponent } from './createaccount/createaccount.component';
 import { FooterComponent } from './footer/footer.component';
+import { DepositComponent } from './deposit/deposit.component';
+import { WithdrawComponent } from './withdraw/withdraw.component';
+import { TransferComponent } from './transfer/transfer.component';
 
 
 
@@ -46,7 +49,10 @@ import { FooterComponent } from './footer/footer.component';
     TransactionsComponent,
     TransactionHistoryComponent,
     CreateaccountComponent,
-    FooterComponent
+    FooterComponent,
+    DepositComponent,
+    WithdrawComponent,
+    TransferComponent
 
   ],
   entryComponents: [AddressComponent, EmailComponent, PhoneComponent, CreateaccountComponent],

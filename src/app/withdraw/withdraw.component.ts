@@ -1,30 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import {AccountListService } from '../services/account-list/account-list.service';
-import {TransactionsService} from '../services/transaction/transactions.service';
-import {ActivatedRoute, Params} from '@angular/router';
-import {MatDialogRef} from '@angular/material/dialog';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {TransactionsService} from '../services/transaction/transactions.service';
+import {MatDialogRef} from '@angular/material/dialog';
+import {TransactionHistoryService} from '../services/transaction/transaction-history.service';
 
 @Component({
-  selector: 'app-transactions',
-  templateUrl: './transactions.component.html',
-  styleUrls: ['./transactions.component.css']
+  selector: 'app-withdraw',
+  templateUrl: './withdraw.component.html',
+  styleUrls: ['./withdraw.component.css']
 })
+export class WithdrawComponent implements OnInit {
 
-export class TransactionsComponent implements OnInit {
+  withdrawForm: FormGroup;
+  url: string;
 
-  transaction: FormGroup;
-  url: Params;
-
-  constructor(private accountListService: AccountListService,
-              private transactionService: TransactionsService,
-              private route: ActivatedRoute,
-              public dialogRef: MatDialogRef<TransactionsComponent>,
+  constructor(private transactionService: TransactionsService,
+              private historyService: TransactionHistoryService,
+              private router: Router,
+              public dialogRef: MatDialogRef<WithdrawComponent>,
               private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.retrieveAccount();
-    this.transaction = this.fb.group({
+    this.retrieveAccountUrl();
+    this.withdrawForm = this.fb.group({
       amount: [, [Validators.required, Validators.pattern('^[0-9]$')]],
       accounts: this.fb.array([this.getAccountNumbers()])
     });
@@ -51,22 +50,12 @@ export class TransactionsComponent implements OnInit {
   }
 
   withdraw(): void{
-    this.transactionService.withdraw(this.transaction, this.url);
+    this.transactionService.withdraw(this.withdraw, this.url);
   }
 
-  deposit(): void{
-    this.transactionService.deposit(this.transaction, this.url);
+  private retrieveAccountUrl(): void{
+    this.url = this.router.url;
   }
-
-  transfer(): void{
-    this.transactionService.transfer(this.transaction, this.url);
-  }
-
-  private retrieveAccount(): void{
-    this.route.params.subscribe(url =>
-      this.url = url);
-  }
-
 
   // tslint:disable-next-line:typedef
   private getAccountNumbers() {

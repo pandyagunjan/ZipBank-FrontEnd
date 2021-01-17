@@ -19,14 +19,14 @@ export class TransactionsService {
   constructor(private http: HttpClient) { }
 
   withdraw(transaction: FormGroup, url: Params): void{
-    this.http.put<any>(`${API_URL}/myaccount/${url}/withdraw`, transaction, httpOption);
+    this.http.put<any>(`${API_URL}${url}/withdraw`, transaction, httpOption);
   }
 
   deposit(transaction: FormGroup, url: Params): void{
-    this.http.put<any>(`${API_URL}/myaccount/${url}/deposit`, transaction, httpOption);
+    this.http.put<any>(`${API_URL}${url}/deposit`, transaction, httpOption);
   }
 
   transfer(transaction: FormGroup, url: Params): void{
-    this.http.put<any>(`${API_URL}/myaccount/${url}/transfer`, transaction, httpOption);
+    this.http.put<any>(`${API_URL}${url}/transfer`, transaction, httpOption);
   }
 }

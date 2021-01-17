@@ -15,8 +15,10 @@ p {
 .login-container {
   text-align: center;
   display: inline;
+}
 
-
+.alert {
+  text-align: center;
 }
 
 

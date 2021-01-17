@@ -90,7 +90,7 @@
         </div>    
 
         <h3>Address</h3>
-        <div class = "clusterContainer" formGroupName="address">
+        <div class = "clusterContainer">
             <div class = "rowContainers">
                     <div id = "col1-a">
                         <label>Street address</label>
@@ -197,7 +197,7 @@
         </div>
 
         <h3>Login Information</h3>
-        <div class = "clusterContainer" formGroupName = "login">
+        <div class = "clusterContainer">
             <div class = "rowContainers">
                 <div class = "col-50">
                     <label>Username</label>
@@ -205,6 +205,9 @@
                         <div *ngIf = "username.invalid && (username.dirty || username.touched)" class = "alert">
                             <div *ngIf = "username.errors.required">
                                 Username is required
+                            </div>
+                            <div *ngIf = "username.errors.pattern">
+                                Start with letter, 8-20 length
                             </div>
                         </div>
                 </div>
@@ -224,38 +227,60 @@
         </div>
 
         <h3>Account Setup</h3>
-        <div class = "clusterContainer" formArrayName = "accounts">
-            
-            <div *ngFor="let accountsGroup of accountsArray.controls; let i = index;" [formGroupName] = "i">
+        <div class = "clusterContainer">
+            <div class = "rowContainers">
+                <div class = "col-50">
                     <label>Account Type to Create</label>
                     <select id = "accountSelect" type="text" formControlName = "accountType">
                         <option value="CHECKING">Checking</option>
                         <option value="SAVINGS">Savings</option>
                     </select>
-    
-                    <div formArrayName = "transactions">
-                        <div *ngFor="let transactionsGroup of transactionsArray.controls; let j = index;" [formGroupName] = "j">
-                            <label>Deposit amount</label>
-                            <input class = "accountInput" type="text" formControlName = "transactionAmount">
-                            <div formArrayName = "accounts">
-                                <div *ngFor="let transactionsAccountGroup of transactionAccountsArray.controls; let k = index;" [formGroupName] = "k">
-                                    <div class = "col-50">
-                                        <label>Account number</label>
-                                        <input class = "fiftyInput" type="text" formControlName = "accountNumber">
-                                    </div>
-                                    <div class = "col-50">
-                                        <label>Routing number</label>
-                                        <input class = "fiftyInput" type="text" formControlName = "routingNumber">
-                                    </div>
-                                </div>
+                </div>
+                <div class = "col-50">
+                    <label>Deposit amount</label>
+                        <input class = "fiftyInput" type="text" formControlName="transactionAmount">
+                        <div *ngIf = "transactionAmount.invalid && (transactionAmount.dirty || transactionAmount.touched)" class = "alert">
+                            <div *ngIf = "transactionAmount.errors.required">
+                                Deposit amount is required
                             </div>
-
+                            <div *ngIf = "transactionAmount.errors.pattern">
+                                Input value with some pennies
+                            </div>
                         </div>
-                    </div>
+                </div>
             </div>
+
+            <div class = "rowContainers">
+                <div class = "col-50">
+                    <label>Account number</label>
+                        <input class = "fiftyInput" type="text" formControlName="accountNumber">
+                        <div *ngIf = "accountNumber.invalid && (accountNumber.dirty || accountNumber.touched)" class = "alert">
+                            <div *ngIf = "accountNumber.errors.required">
+                                Account number is required
+                            </div>
+                            <div *ngIf = "accountNumber.errors.pattern">
+                                Account number should be 10 digits
+                            </div>
+                        </div>
+                </div>
+                <div class = "col-50">
+                    <label>Routing number</label>
+                        <input class = "fiftyInput" type="text" formControlName="routingNumber">
+                        <div *ngIf = "routingNumber.invalid && (routingNumber.dirty || routingNumber.touched)" class = "alert">
+                            <div *ngIf = "routingNumber.errors.required">
+                                Routing number is required
+                            </div>
+                            <div *ngIf = "routingNumber.errors.pattern">
+                                Routing number is invalid
+                            </div>
+                        </div>
+                </div>
+            </div>
+
         </div>
-      
-        <button class = "btn btn-warning" type="submit" >Submit</button>
+
+        <button class = "btn btn-warning" type="submit"
+        >Submit</button>
       </form>
       
 </div>

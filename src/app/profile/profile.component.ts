@@ -5,6 +5,7 @@ import {MatDialogRef} from "@angular/material/dialog"
 import { AddressComponent } from '../address/address.component';
 import {EmailComponent} from '../email/email.component';
 import {PhoneComponent} from '../phone/phone.component';
+import {Router} from '@angular/router';
 
 
 
@@ -40,11 +41,17 @@ export class ProfileComponent implements OnInit {
   moddedPhone: string;
 
   constructor(private profileService: ProfileService,
-    private dialog: MatDialog) {
+    private dialog: MatDialog,
+    private router: Router) {
   }
 
   ngOnInit(): void {
     this.getProfile();
+
+  }
+
+  isHomeRoute(){
+    return this.router.url === '/myaccount/profile';
   }
 
   getProfile()

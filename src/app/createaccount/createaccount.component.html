@@ -1,0 +1,67 @@
+
+<form [formGroup]="createAccountForm" (ngSubmit)="onSubmit()">
+<h3>Account Setup
+    <mat-button class = close mat-dialog-close>X</mat-button>
+</h3>
+    <div class = "clusterContainer">
+        
+                <label>Account type to create</label>
+                <select id = "accountSelect" type="text" formControlName = "accountType">
+                    <option value="CHECKING">Checking</option>
+                    <option value="SAVINGS">Savings</option>
+                </select>
+
+                <label>Deposit amount</label>
+                <input type="text" formControlName = "transactionAmount">
+                <div *ngIf = "transactionAmount.invalid && (transactionAmount.dirty || transactionAmount.touched)" class = "alert">
+                    <div *ngIf = "transactionAmount.errors.required">
+                        Deposit amount is required
+                    </div>
+                    <div *ngIf = "transactionAmount.errors.pattern">
+                        Input value with some pennies
+                    </div>
+                </div>
+                
+                <div formArrayName = "internalAccount">
+                    <div *ngFor = "let formGroup of internalAccountArray.controls; let i=index" [formGroupName] = "i">
+                        <label>Accounts</label>
+                        <select id = "accountSelect" formControlName = "accountNumber">
+                            <option *ngFor = "let account of accountsArray" [value]="account.accountNumber">
+                                {{account.accountType}} {{account.accountNumber}}
+                            </option>
+                        </select>    
+                    </div>
+                </div>
+
+                <label>External Account</label>
+                <input type="checkbox" (change)="onChange()" formControlName = "externalAccountBoolean">
+
+                <div formArrayName = "externalAccount">
+                    <div *ngFor = "let formGroup of externalAccountArray.controls; let i=index" [formGroupName] = "i">
+                        <label>Account number</label>
+                        <input type="text" formControlName = "accountNumber">
+                        <div *ngIf = "accountNumber.invalid && (accountNumber.dirty || accountNumber.touched)" class = "alert">
+                            <div *ngIf = "accountNumber.errors.required">
+                                Account number is required
+                            </div>
+                            <div *ngIf = "accountNumber.errors.pattern">
+                                Account number should be 10 digits
+                            </div>
+                        </div>
+
+                        <label>Routing number</label>
+                        <input type="text" formControlName = "routingNumber">
+                        <div *ngIf = "routingNumber.invalid && (routingNumber.dirty || routingNumber.touched)" class = "alert">
+                            <div *ngIf = "routingNumber.errors.required">
+                                Routing number is required
+                            </div>
+                            <div *ngIf = "routingNumber.errors.pattern">
+                                Routing number is invalid
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+<button id = "save" type="submit" mat-dialog-close>Submit</button>
+
+</form>

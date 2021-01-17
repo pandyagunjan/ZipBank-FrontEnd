@@ -1,10 +1,27 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div><nav class="navbar-brand"> ZipBank</nav></div>
 
+    <ul class="navbar-nav">
+      <li><a *ngIf="true" routerLink="/myaccount/profile/delete" class="nav-link">Delete Profile</a></li>
+      <li><a *ngIf="true" routerLink="/myaccount" class="nav-link">List Accounts</a></li>
+      <!-- <li><a *ngIf="router.url === '/myaccount'" class="pageTitle">My Accounts</a></li>
+      <li><a *ngIf="isHomeRoute()">My Accounts</a></li> -->
+      <!--      <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/profile" class="nav-link">Profile</a></li>-->
+    </ul>
+
+    <!--    <ul class="navbar-nav navbar-collapse justify-content-end">-->
+    <!--      <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>-->
+    <!--      <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>-->
+    <!--    </ul>-->
+
+  </nav>
+</header>
 <h1>
-    <div class = title>
-        Profile
-    </div>
+  <div class = title>
+    My Profile
+  </div>
 </h1>
-
 <div class = container>
     <ul style="list-style-type:none;">
         <div class = row>

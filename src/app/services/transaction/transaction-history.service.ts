@@ -14,7 +14,7 @@ export class TransactionHistoryService {
   constructor(private http: HttpClient) { }
 
   fetchAccount(url: string): Observable<any> {
-    return this.http.get(`${API_URL}/myaccount/${url}`);
+    return this.http.get(`${API_URL}${url}`);
   }
 }
 

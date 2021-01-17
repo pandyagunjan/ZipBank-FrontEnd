@@ -38,7 +38,7 @@ input {
 
 #accountSelect{
   margin-left: 1.75em;
-  width: 27%;
+  width: 86%;
   height: 28px;
 }
 
@@ -85,6 +85,7 @@ h3{
 
 .rowContainers{
   width: 100%;
+  height: 70px;
 }
 
 .title{
@@ -97,39 +98,59 @@ h3{
   display:inline-block;
   width: 33.3%;
   align-content: center;
+  height: 60%;
+  vertical-align: top;
 }
 
 .col2{
   display:inline-block;
-  width: 33.3%
+  width: 33.3%;
+  height: 60%;
+  vertical-align: top;
 }
 
 #col2-a{
   display:inline-block;
-  width: 66.6%
+  width: 66.6%;
+  height: 60%;
+  vertical-align: top;
 }
 
 .col3{
   display:inline-block;
-  width: 33.3%
+  width: 33.3%;
+  height: 60%;
+  vertical-align: top;
 }
 
 #col1-a{
   display:inline-block;
-  width: 66.6%
+  width: 66.6%;
+  height: 60%;
+  vertical-align: top;
 }
 
 #col2-b{
   display:inline-block;
-  width: 33.3%
+  width: 33.3%;
+  height: 60%;
+  vertical-align: top;
 }
 
 .col-50{
   display:inline-block;
-  width: 50%
+  width: 50%;
+  height: 60%;
+  vertical-align: top;
 }
 
 #col2-login{
   display:inline-block;
-  width: 50%
+  width: 50%;
+  height: 60%;
+  vertical-align: top;
+}
+
+.alert{
+  margin: 0 0 0 2.25em;
 }

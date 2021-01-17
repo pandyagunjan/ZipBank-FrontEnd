@@ -23,6 +23,7 @@ import { PhoneComponent } from './phone/phone.component';
 import { DeleteCustomerComponent } from './delete-customer/delete-customer.component';
 import {LogoutComponent} from './logout/logout.component';
 import { FooterComponent } from './footer/footer.component';
+import { CreateaccountComponent } from './createaccount/createaccount.component';
 
 
 @NgModule({
@@ -38,10 +39,11 @@ import { FooterComponent } from './footer/footer.component';
     EmailComponent,
     PhoneComponent,
     DeleteCustomerComponent,
-    FooterComponent,
+    CreateaccountComponent,
+    FooterComponent
 
   ],
-  entryComponents: [AddressComponent, EmailComponent, PhoneComponent],
+  entryComponents: [AddressComponent, EmailComponent, PhoneComponent, CreateaccountComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

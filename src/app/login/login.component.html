@@ -17,10 +17,11 @@
       <button class="btn btn-success mr-2 mb-2" (click)= handleAuth() (click)="passToken()">Login</button>
       <button class="btn btn-success mr-2 mb-2" [routerLink]="['/openaccount']">Create Account</button>
     </div>
+      <div class="alert" *ngIf="invalidLogin">{{invalidLoginMessage}}</div>
   </div>
 
 
-  
+
 <!-- </div> -->
 <!-- </div> -->
 

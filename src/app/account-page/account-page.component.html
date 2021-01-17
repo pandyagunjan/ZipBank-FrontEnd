@@ -1,35 +1,75 @@
 <div class="login-wrapper" xmlns="http://www.w3.org/1999/html">
-  <div class="dropdown">
-    <button class="dropbtn">Menu</button>
-    <div class="dropdown-content">
-      <a href="#" routerLink="/myaccount/{{url}}/transaction">Transactions</a>
-      <a href="#">User Profile</a>
-      <a href="#">Account Overview</a>
-    </div>
-    <div class="card">
-      <div class="card-body">
-        <main class="account-fields">
-          <h1 class="Account">(insert account type here)</h1>
-          <div class="account-number">Account Number</div>
-          <div class="account-balance">Account Balance</div>
-          <div class="transaction-history">Transaction History</div>
-        </main>
-        <div class="card-body">
-          <div class="transaction-type">Transaction Type</div>
-          <form>
-            <label for="from-routing-number">From:</label><br>
-            <input type="text" id="from-routing-number" name="from-routing-number"><br>
-          </form>
-          <form>
-            <label for="to-routing-number">To:</label><br>
-            <input type="text" id="to-routing-number" name="to-routing-number"><br>
-          </form>
-          <form>
-            <label for="amount">Amount:</label><br>
-            <input type="text" id="amount" name="amount"><br>
-          </form>
-        </div>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div>
+        <nav class="navbar-brand"> ZipBank</nav>
       </div>
+
+      <ul class="navbar-nav">
+        <li><a *ngIf="true" routerLink="/myaccount/profile" class="nav-link">My Profile</a></li>
+        <li><a *ngIf="true" routerLink="/myaccount/profile/delete" class="nav-link">Delete Profile</a></li>
+        <!--      <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/profile" class="nav-link">Profile</a></li>-->
+      </ul>
+
+      <!--    <ul class="navbar-nav navbar-collapse justify-content-end">-->
+      <!--      <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>-->
+      <!--      <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>-->
+      <!--    </ul>-->
+
+    </nav>
+    <!--          <div class="dropdown">-->
+    <!--            <button class="drop-button">Menu</button>-->
+    <!--            <div class="dropdown-content">-->
+    <!--              <a href="#">User Profile</a>-->
+    <!--              <a href="#">Account Overview</a>-->
+    <!--              <a href="#">Sign Out</a>-->
+    <!--            </div>-->
+    <!--          </div>-->
+    <h1 class="title">
+      <div>Account Page</div>
+    </h1>
+  </header>
+  <nav class="navbar navbar-expand-md navbar-light bg-transparent">
+    <div class="container">
+      <table class="table">
+        <thead>
+        <tr>
+          <th class="account-number"> Account Number: <!--{{account.accountNumber}}--></th>
+          <th class="account-balance"> Account Balance: <!--{{account.balance}}--> </th>
+        </tr>
+        </thead>
+      </table>
     </div>
+  </nav>
+  <div class="container">
+    <table class="table">
+      <thead>
+      <tr>
+        <th> Transaction History</th>
+      </tr>
+      </thead>
+      <!--            <tbody>-->
+      <!--            <tr *ngFor="let account of accounts">-->
+      <!--              <td>{{account.}}</td>-->
+      <!--            </tbody>-->
+    </table>
+  </div>
+  <div class="container-center">
+    <table class="table">
+      <thead> Make a Transacation</thead>
+      <tbody>
+      <td>
+        <button (click)="navigateToTransactions(account.encryptedUrl)" class="btn btn-warning">Transactions Page</button>
+      </td>
+      </tbody>
+    </table>
   </div>
 </div>
+
+
+
+
+
+
+
+

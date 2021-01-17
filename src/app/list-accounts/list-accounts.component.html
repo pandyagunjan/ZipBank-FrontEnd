@@ -6,6 +6,7 @@
     <ul class="navbar-nav">
       <li><a *ngIf="true" routerLink="/myaccount/profile" class="nav-link">My Profile</a></li>
       <li><a *ngIf="true" routerLink="/myaccount/profile/delete" class="nav-link">Delete Profile</a></li>
+      <li><button (click)="createAccount()" class="btn btn-primary">Create Account</button></li>
       <!--      <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/profile" class="nav-link">Profile</a></li>-->
     </ul>
 
@@ -28,7 +29,7 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-light bg-transparent" >
 
-    <td><button (click)="createAccount()" class="btn btn-primary">Create Account</button></td>
+
 
     <div class="container">
 

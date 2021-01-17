@@ -28,7 +28,7 @@ export class Address{
   )
   {}
 }
-    
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',

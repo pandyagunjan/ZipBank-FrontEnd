@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {AccountListService} from '../services/account-list/account-list.service';
-import { MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import { MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { CreateaccountComponent } from '../createaccount/createaccount.component';
 
 export class Account {
@@ -61,6 +61,6 @@ export class ListAccountsComponent implements OnInit {
   createAccount()
   {
       this.dialog.open(CreateaccountComponent);
-      this.dialog.afterAllClosed.subscribe(()=>this.getAllAccounts()); //refreshes the page after update
+      this.dialog.afterAllClosed.subscribe(() => this.getAllAccounts()); // refreshes the page after update
   }
 }

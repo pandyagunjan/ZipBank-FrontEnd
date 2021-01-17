@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
-import {AuthenticationService} from '../services/authentication/authenticationservice.service';
-import {TransactionHistoryService} from '../transaction-history.service';
-import {AccountListService} from '../services/account-list.service';
+import {TransactionHistoryService} from '../services/transaction/transaction-history.service';
 import {Observable} from 'rxjs';
+import {AccountHist} from './accountHist';
+import {ActivatedRoute, Params} from '@angular/router';
+import {TransactionHist} from './transactionHist';
+
+
 
 @Component({
   selector: 'app-transaction-history',
@@ -12,29 +14,21 @@ import {Observable} from 'rxjs';
 })
 export class TransactionHistoryComponent implements OnInit {
 
-  account: Account;
+  account: AccountHist;
+  url: Params;
+  history: TransactionHist[];
 
-  constructor(private router: Router,
-              private authenticationService: AuthenticationService,
-              private historyService: TransactionHistoryService,
-              private accountListServ: AccountListService) { }
+  constructor(private historyService: TransactionHistoryService,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
+    this.route.queryParams.subscribe(url =>
+      this.url = url);
+    this.getHistory(this.url);
   }
 
-  fetchAccount(id: number): void{
-    let acc: Observable<Account[]>;
-    acc = this.accountListServ.retrieveAllAccounts(id);
-
-    acc.forEach(a => {
-      if(a.id){
-
-      }
-    });
+  private getHistory(url: Params): void {
+    this.historyService.fetchAccountHistory(url).subscribe(account => this.account = account);
+    this.history = this.account.transactions;
   }
-
-
-
-
 }

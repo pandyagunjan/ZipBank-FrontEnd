@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
-import {Transaction} from './transactions/transaction';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {API_URL} from './app.apiurl';
+import {API_URL} from '../../app.apiurl';
+import {AccountHist} from '../../transaction-history/accountHist';
+import {Params} from '@angular/router';
 
 const httpOption = {
   headers: new HttpHeaders({
@@ -19,7 +20,9 @@ export class TransactionHistoryService {
   constructor(private http: HttpClient) { }
 
 
-
+  fetchAccountHistory(url: Params): Observable<any> {
+    return this.http.get(`${API_URL}/myaccount/${url}`, httpOption);
+  }
 }
 
 

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {AddressComponent} from '../address/address.component';
+import {MatDialog} from '@angular/material/dialog';
+import {TransactionsComponent} from '../transactions/transactions.component';
 
 @Component({
   selector: 'app-account-page',
@@ -7,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
+
+  url: string;
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(url => {
+      this.url = url.toString();
+    });
   }
-
 }

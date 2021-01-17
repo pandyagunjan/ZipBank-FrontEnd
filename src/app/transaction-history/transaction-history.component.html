@@ -1,1 +1,24 @@
-<p>transaction-history works!</p>
+<div class="container">
+
+  <h3>Transaction history</h3>
+
+  <table style="width:70%">
+    <thead>
+      <tr>
+        <th>transactionDescription</th>
+        <th>transactionAmount</th>
+        <th>transactionBalance</th>
+        <th>transactionDate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hist of history">
+        <td>{{hist.transactionDescription}}</td>
+        <td>{{hist.transactionAmount}}</td>
+        <td>{{hist.transactionBalance}}</td>
+        <td>{{hist.transactionDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

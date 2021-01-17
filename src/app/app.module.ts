@@ -22,21 +22,14 @@ import { EmailComponent } from './email/email.component';
 import { PhoneComponent } from './phone/phone.component';
 import { DeleteCustomerComponent } from './delete-customer/delete-customer.component';
 import {LogoutComponent} from './logout/logout.component';
-import {LogoutComponent} from './logout/logout.component';
-import {AddressComponent} from './address/address.component';
-import {EmailComponent} from './email/email.component';
-import {PhoneComponent} from './phone/phone.component';
-import {DeleteCustomerComponent} from './delete-customer/delete-customer.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import {HttpInterceptService} from './services/http-intercept/http-intercept.service';
-import { FooterComponent } from './footer/footer.component';
+import {TransactionsComponent} from './transactions/transactions.component';
+import {TransactionHistoryComponent} from './transaction-history/transaction-history.component';
 import { CreateaccountComponent } from './createaccount/createaccount.component';
+import { FooterComponent } from './footer/footer.component';
 
 
+
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +43,8 @@ import { CreateaccountComponent } from './createaccount/createaccount.component'
     EmailComponent,
     PhoneComponent,
     DeleteCustomerComponent,
+    TransactionsComponent,
+    TransactionHistoryComponent,
     CreateaccountComponent,
     FooterComponent
 

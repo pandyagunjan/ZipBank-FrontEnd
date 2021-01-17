@@ -1,1 +1,46 @@
-<p>profile works!</p>
+
+<h1>
+    <div class = title>
+        Profile
+    </div>
+</h1>
+
+<div class = container>
+    <ul style="list-style-type:none;">
+        <div class = row>
+            <div class = col1>
+                Address
+            </div>
+            <div class = col2>
+                <li>{{profiles.address.firstLine}}</li>
+                <li>{{profiles.address.secondLine}}</li>
+                <li>{{profiles.address.city}}, {{profiles.address.state}} {{profiles.address.zipcode}}</li>
+            </div>
+            <div class = col3>
+                <button class = "btn btn-warning" (click) = "editAddress()">Edit</button>
+            </div>
+        </div>
+        <div class = row>
+            <div class = col1>
+                Email
+            </div>
+            <div class = col2>
+                {{profiles.email}}
+            </div>
+            <div class = col3>
+                <button class = "btn btn-warning" (click) = "editEmail()">Edit</button>
+            </div>
+        </div>
+        <div class = row>
+            <div class = col1>
+                Phone
+            </div>
+            <div class = col2>
+                {{moddedPhone}}
+            </div>
+            <div class = col3>
+                <button class = "btn btn-warning" (click) = "editPhone()">Edit</button>
+            </div>
+        </div>
+    </ul>
+</div>

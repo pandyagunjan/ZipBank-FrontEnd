@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {AccountListService} from '../services/account-list.service';
+import {AccountListService} from '../services/account-list/account-list.service';
 
 export class Account {
   constructor(
@@ -33,18 +33,21 @@ export class ListAccountsComponent implements OnInit {
   // tslint:disable-next-line:typedef
   getAllAccounts()
   {
-    this.listService.retrieveAllAccounts(1).subscribe(
+    this.listService.retrieveAllAccounts().subscribe(
       response => {
         console.log(response);
         // @ts-ignore
         this.accounts = response; },
-    error => console.log('couldn\'t get because', error)
+    error => {
+        this.message = error;
+      }
+
     );
   }
 
   // tslint:disable-next-line:typedef
   navigateToAccount(url)
   {
-    this.router.navigate(['accounts', url]);
+    this.router.navigate(['myaccount', url]);
   }
 }

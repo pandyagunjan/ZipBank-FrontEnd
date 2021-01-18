@@ -4,6 +4,7 @@ import { Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 import {AccountListService} from '../services/account-list/account-list.service';
+import { RegistrationService} from '../services/registration/registration.service';
 
 export class Account {
   constructor(
@@ -59,7 +60,8 @@ export class CreateaccountComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private dialogRef: MatDialogRef<CreateaccountComponent>,
     private http: HttpClient,
-    private listService: AccountListService) { }
+    private listService: AccountListService,
+    private registrationService: RegistrationService) { }
     
   ngOnInit(): void {
 
@@ -159,18 +161,13 @@ export class CreateaccountComponent implements OnInit {
     //console.log(this.createAccountForm.value);
     this.setSubmitAccount();
     //console.log(JSON.stringify(this.submitAccount));
-    this.postToServer();
+    this.registrationService.postToServer(this.url, JSON.stringify(this.submitAccount)).subscribe(
+      response=>alert("account created!")
+    );
   }
 
   onNoClick(): void{
     this.dialogRef.close();
-  }
-
-  postToServer(){
-    this.http.post(this.url, JSON.stringify(this.submitAccount)).subscribe(
-      data => console.log('success!', data),
-      error => console.log('couldnt post because', error)
-    );
   }
 
   getAllAccounts()

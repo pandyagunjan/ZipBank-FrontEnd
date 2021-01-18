@@ -69,6 +69,7 @@ button:disabled {
 
 .container{
     width: 750px;
+    margin-bottom: 20px;
 }
 
 h1{

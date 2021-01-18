@@ -13,14 +13,18 @@ export class LoginComponent implements OnInit {
   invalidLogin = false;
   error: any = null;
 
+  myimage:string = "assets/Images2/finallogo.jpg";
+
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService
   ) { }
 
+
   ngOnInit(): void {
 
   }
+
 
   handleAuth = () => {
     this.authenticationService.executeAuthService(this.username, this.password)
@@ -35,6 +39,8 @@ export class LoginComponent implements OnInit {
           this.invalidLogin = true;
         }
       );
+
+  
   }
 
   passToken = () => {

@@ -5,6 +5,7 @@ h1{
   height: 50px;
   display:flex;
   align-items: center;
+  border: 3px solid lightblue;
 }
 
 ul{
@@ -43,4 +44,9 @@ ul{
 
 .col3{
   flex: 20%;
+}
+
+.title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 35px;
 }

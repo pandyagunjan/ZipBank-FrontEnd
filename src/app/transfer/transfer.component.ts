@@ -57,9 +57,7 @@ export class TransferComponent implements OnInit {
 
   ngOnInit(): void {
     this.retrieveAccountUrl();
-    this.getAccount(this.router.url);
     this.getAllAccounts();
-    this.filterOutCurrentAccount();
     this.transferForm = this.fb.group({
       transactionAmount: [, [Validators.required,Validators.pattern('^\\d+\\.\\d\\d$')]], //must be a double XX.XX
       internalAccount: this.fb.array([
@@ -70,7 +68,7 @@ export class TransferComponent implements OnInit {
 
   internalAccountForm(){
     return this.fb.group({
-      accountNumber:[,Validators.required],
+      accountNumber:[,Validators.required]
     })
   }
 
@@ -79,11 +77,15 @@ export class TransferComponent implements OnInit {
   }
 
   get transactionAmount(){
-    return this.transferForm.get('transactionAmount');
+    return this.transferForm.get("transactionAmount");
   }
 
   get accountNumber(){
-    return this.transferForm.get('accountNumber');
+    return this.internalAccountArray.get("accountNumber");
+  }
+
+  private retrieveAccountUrl(): void{
+    this.url = this.router.url+"/transfer";
   }
 
   transfer(): void{
@@ -91,10 +93,6 @@ export class TransferComponent implements OnInit {
     console.log(JSON.stringify(this.submitTrans));
     console.log(this.url);
     this.registrationService.putToServer(this.url, JSON.stringify(this.submitTrans)).subscribe();
-  }
-
-  private retrieveAccountUrl(): void{
-    this.url = this.router.url+"/transfer";
   }
 
   //sets the form data to the object before stringifying to the desired json format
@@ -106,29 +104,29 @@ export class TransferComponent implements OnInit {
     this.submitTrans.transactionAmount = this.transferForm.get("transactionAmount").value;
   }
 
-  filterOutCurrentAccount(){
-      console.log(this.currentAccount.accountNumber);
-      this.accountsArray = this.accountsArray.filter(a=>a.accountNumber===this.currentAccount.accountNumber)
-      console.log("transferable accounts are:"+this.accountsArray)
-  }
-
   getAllAccounts()
   {
     this.listService.retrieveAllAccounts().subscribe(
-      response => {
-        console.log(response);
-        // @ts-ignore
-        this.accountsArray = response
-      }
+        response=>{
+          //console.log(response);
+          this.accountsArray = response as unknown as Account[]; //not sure why this is required to assign the response to accountsArray
+          this.getAccount(this.router.url);
+        }
     );
   }
 
   private getAccount(url: string): void {
     this.accountService.fetchAccount(url).subscribe(account => {
         this.currentAccount = account;
-        console.log("current account is:" + account);
+        this.filterOutCurrentAccount();
+        //console.log("hello"+JSON.stringify(account));
       }
     );
   }
+
+  filterOutCurrentAccount(){
+    this.accountsArray = this.accountsArray.filter(a=>a.accountNumber!=this.currentAccount.accountNumber);
+    console.log("transferable accounts are:"+ JSON.stringify(this.accountsArray));
+}
 }
 

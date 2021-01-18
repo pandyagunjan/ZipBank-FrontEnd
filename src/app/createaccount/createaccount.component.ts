@@ -137,7 +137,7 @@ export class CreateaccountComponent implements OnInit {
   setSubmitAccount(){
     console.log(this.useExternalAcct); 
     if(this.useExternalAcct){
-      this.submitTransAccount.accountNumber = this.externalAccountArray.at(0).get("accountNumber").value;
+      //this.submitTransAccount.accountNumber = this.externalAccountArray.at(this.onChange().get("accountNumber").value;
       this.submitTransAccount.routingNumber = this.externalAccountArray.at(0).get("routingNumber").value;
     }
     else{
@@ -178,5 +178,10 @@ export class CreateaccountComponent implements OnInit {
         // @ts-ignore
         this.accountsArray = response; }
     );
+  }
+
+  onchange(accountindex){
+    console.log(accountindex);
+    return accountindex;
   }
 }

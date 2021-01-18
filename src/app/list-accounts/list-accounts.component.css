@@ -15,12 +15,6 @@ ul{
   width: 100%
 }
 
-.title{
-  color: white;
-  text-align: center;
-  margin: 0 auto;
-}
-
 .container{
   margin-top: 0px;
   display:flex;
@@ -60,7 +54,7 @@ tr{
   font-family: 'Bebas Neue', cursive;
   font-size: 35px;
 }
-=======
+
 #createAccountBtn{
   display: flex;
   margin: 0 auto;

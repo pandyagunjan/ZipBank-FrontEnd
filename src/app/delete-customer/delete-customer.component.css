@@ -11,10 +11,9 @@ ul{
   width: 100%
 }
 
-.title{
-  color: white;
-  text-align: center;
-  margin: 0 auto;
+.title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 35px;
 }
 
 .container{

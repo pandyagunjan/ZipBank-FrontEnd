@@ -47,12 +47,10 @@ p {
   border: 5px solid lightblue;
   line-height: 100px;
   font-family: 'Bebas Neue', cursive;
-  padding: 10px;
+  padding: 20px;
   font-size: 80px;
-  cursor: -webkit-grabbing;
-
-  
-  
+  /* cursor: -webkit-grabbing; */
+  /* margin-top: 50px; */
 }
 
 .image-container {
@@ -62,6 +60,7 @@ p {
   margin-left: 42%;
   margin-right: 42%;
   background-color: cadetblue;
+
 }
 
 .slider-image {
@@ -69,8 +68,7 @@ p {
   width: 100vh !important;
   padding-left: 20px;
   padding-right: 20px;
-  
-  
+  padding-bottom: 20px;
 }
 
 .subtitle {
@@ -92,8 +90,6 @@ p {
   height: 300px;
   position: relative;
   width: 300px;
-  
-  
   
 }
 
@@ -117,9 +113,5 @@ p {
   
   
   
-}
-
-
-
 }
 

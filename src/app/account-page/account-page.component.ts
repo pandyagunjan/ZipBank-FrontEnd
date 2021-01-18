@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Account} from '../list-accounts/list-accounts.component';
 import {AccountListService} from '../services/account-list/account-list.service';
 import {Router} from '@angular/router';
+import {AuthenticationService} from '../services/authentication/authenticationservice.service';
 @Component({
   selector: 'app-account-page',
   templateUrl: './account-page.component.html',
@@ -9,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class AccountPageComponent implements OnInit {
 account: Account;
-  constructor(private router: Router, public listService: AccountListService) { }
+  constructor(private router: Router, public listService: AccountListService, public authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
 //    this.getAccount();

@@ -8,6 +8,7 @@
       <ul class="navbar-nav">
         <li><a *ngIf="true" routerLink="/myaccount/profile" class="nav-link">My Profile</a></li>
         <li><a *ngIf="true" routerLink="/myaccount/profile/delete" class="nav-link">Delete Profile</a></li>
+        <li><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>
         <!--      <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/profile" class="nav-link">Profile</a></li>-->
       </ul>
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AccountListService} from '../services/account-list/account-list.service';
 import {Router} from '@angular/router';
+import {AuthenticationService} from '../services/authentication/authenticationservice.service';
 
 @Component({
   selector: 'app-delete-customer',
@@ -24,7 +25,11 @@ export class DeleteCustomerComponent implements OnInit {
         console.log('Response is' + response);
         this.logOutOnDeletion();
         // @ts-ignore
+<<<<<<< HEAD
         // this.accounts = response;
+=======
+        this.accounts = response;
+>>>>>>> d0d046efdf7791c5d73c59b7f243171d8db571fc
         },
       error => {
          console.log('Errors is ' + error.error.status);

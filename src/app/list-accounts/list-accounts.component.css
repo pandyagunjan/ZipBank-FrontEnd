@@ -5,7 +5,10 @@ h1{
   height: 50px;
   display:flex;
   align-items: center;
+
+  border: 3px solid lightblue;
   position: relative;
+
 }
 
 ul{
@@ -52,6 +55,11 @@ tr{
   flex: 20%;
 }
 
+
+.title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 35px;
+}
 #createAccountBtn{
   display: flex;
   margin: 0 auto;

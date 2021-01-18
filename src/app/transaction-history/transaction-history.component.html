@@ -4,18 +4,18 @@
   <table class="table">
     <thead>
       <tr>
-        <th>transactionDescription</th>
-        <th>transactionAmount</th>
-        <th>transactionBalance</th>
-        <th>transactionDate</th>
+        <th>Transaction Description</th>
+        <th>Transaction Amount</th>
+        <th>Transaction Balance</th>
+        <th>Transaction Date</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let hist of history">
         <td>{{hist.transactionDescription}}</td>
-        <td>{{hist.transactionAmount}}</td>
-        <td>{{hist.transactionBalance}}</td>
-        <td>{{hist.transactionDate}}</td>
+        <td>{{hist.transactionAmount | currency}}</td>
+        <td>{{hist.transactionBalance | currency}}</td>
+        <td>{{hist.transactionDate | date | uppercase}}</td>
       </tr>
     </tbody>
   </table>

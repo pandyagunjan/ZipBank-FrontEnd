@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   invalidLoginMessage = 'Please enter a valid Username & Password';
   error: any = null;
 
-  myimage:string = "assets/Images2/finallogo.jpg";
+  myimage = 'assets/Images2/finallogo.jpg';
 
   constructor(
     private router: Router,
@@ -40,8 +40,6 @@ export class LoginComponent implements OnInit {
           this.invalidLogin = true;
         }
       );
-
-  
   }
 
   passToken = () => {

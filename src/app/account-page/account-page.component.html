@@ -13,7 +13,7 @@
 
       </ul>
     </nav>
-    
+
     <h1 class="title"><link rel="preconnect" href="https://fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
@@ -25,12 +25,10 @@
         <thead>
         <tr>
           <th class="account-number"> Account Number: {{account.accountNumber}}</th>
-          <th class="account-balance"> Account Balance: {{account.balance}} </th>
+          <th class="account-balance"> Account Balance: {{account.balance | currency:'USD'}} </th>
         </tr>
         </thead>
       </table>
-    </div>
-  <div class="container">
     <table class="table">
       <thead>
       <tr>
@@ -38,19 +36,8 @@
       </tr>
       </thead>
       <tbody>
-      <div class="container">
         <app-transaction-history></app-transaction-history>
-      </div>
       </tbody>
     </table>
   </div>
-
 </div>
-
-
-
-
-
-
-
-

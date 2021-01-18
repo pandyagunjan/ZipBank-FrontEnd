@@ -23,7 +23,8 @@ export class TransactionsService {
   }
 
   deposit(transaction: FormGroup, url: string): void{
-    this.http.put<any>(`${API_URL}${url}/deposit`, transaction, httpOption);
+    this.http.put<any>(`${API_URL}${url}/deposit`, transaction.value, httpOption);
+    console.log(transaction);
   }
 
   transfer(transaction: FormGroup, url: string): void{

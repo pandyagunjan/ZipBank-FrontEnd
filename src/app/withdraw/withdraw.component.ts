@@ -31,26 +31,26 @@ export class WithdrawComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   get amount(){
-    return this.transaction.get('amount');
+    return this.withdrawForm.get('amount');
   }
 
   // tslint:disable-next-line:typedef
   get accounts(){
-    return this.transaction.controls.accounts as FormArray;
+    return this.withdrawForm.controls.accounts as FormArray;
   }
 
   // tslint:disable-next-line:typedef
   get accountNumber(){
-    return this.transaction.get('accountNumber');
+    return this.withdrawForm.get('accountNumber');
   }
 
   // tslint:disable-next-line:typedef
   get routingNumber(){
-    return this.transaction.get('routingNumber');
+    return this.withdrawForm.get('routingNumber');
   }
 
   withdraw(): void{
-    this.transactionService.withdraw(this.withdraw, this.url);
+    this.transactionService.withdraw(this.withdrawForm, this.url);
   }
 
   private retrieveAccountUrl(): void{

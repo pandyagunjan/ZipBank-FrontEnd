@@ -4,7 +4,7 @@
   </h3>
 
   <form [formGroup] = "withdrawForm" (submit) = "withdraw()">
-    <label>Amount </label>
+    <label>Amount to withdraw</label>
     <input type="text" formControlName = "amount">
     <div *ngIf = "amount.invalid && (amount.dirty || amount.touched)" class = "alert">
       <div *ngIf = "amount.errors.required">
@@ -34,8 +34,8 @@
         Amount must be valid
       </div>
     </div>
-  </form>
-  <button id=save (click) = "withdraw()" type = "submit" mat-dialog-close
-          [disabled] = "withdrawForm.invalid">Submit</button>
 
+  </form>
+      <button id=save (click) = "withdraw()" type = "submit" mat-dialog-close
+          [disabled] = "withdrawForm.invalid">Submit</button>
 </div>

@@ -22,7 +22,6 @@ import { EmailComponent } from './email/email.component';
 import { PhoneComponent } from './phone/phone.component';
 import { DeleteCustomerComponent } from './delete-customer/delete-customer.component';
 import {LogoutComponent} from './logout/logout.component';
-import {TransactionsComponent} from './transactions/transactions.component';
 import {TransactionHistoryComponent} from './transaction-history/transaction-history.component';
 import { CreateaccountComponent } from './createaccount/createaccount.component';
 import { FooterComponent } from './footer/footer.component';
@@ -46,7 +45,6 @@ import { TransferComponent } from './transfer/transfer.component';
     EmailComponent,
     PhoneComponent,
     DeleteCustomerComponent,
-    TransactionsComponent,
     TransactionHistoryComponent,
     CreateaccountComponent,
     FooterComponent,
@@ -55,7 +53,8 @@ import { TransferComponent } from './transfer/transfer.component';
     TransferComponent
 
   ],
-  entryComponents: [AddressComponent, EmailComponent, PhoneComponent, CreateaccountComponent],
+  entryComponents: [AddressComponent, EmailComponent, PhoneComponent,
+    CreateaccountComponent, DepositComponent, WithdrawComponent, TransferComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

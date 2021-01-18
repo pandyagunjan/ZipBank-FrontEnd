@@ -14,6 +14,7 @@ import { ProfileComponent} from './profile/profile.component';
 import { AddressComponent} from './address/address.component';
 import {DeleteCustomerComponent} from './delete-customer/delete-customer.component';
 import {TransactionHistoryComponent} from './transaction-history/transaction-history.component';
+import {ErrorPageComponent} from './error-page/error-page.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path: 'myaccount/:url', component: AccountPageComponent, canActivate: [AuthGuardGuard]},
   {path: 'myaccount/profile/delete', component: DeleteCustomerComponent, canActivate: [AuthGuardGuard]},
   {path: 'logout', component: LogoutComponent, canActivate: [AuthGuardGuard]},
-  {path: 'myaccount/:url', component: TransactionHistoryComponent, canActivate: [AuthGuardGuard]}
+  {path: 'myaccount/:url', component: TransactionHistoryComponent, canActivate: [AuthGuardGuard]},
+  {path: 'errorpage', component: ErrorPageComponent}
 ];
 
 @NgModule({

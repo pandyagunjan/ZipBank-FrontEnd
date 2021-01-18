@@ -20,18 +20,18 @@ export class DeleteCustomerComponent implements OnInit {
   {
     this.listService.deleteProfile().subscribe(
       response => {
-        this.message = 'Profile has been deleted';
-        this.invalidRequest = false;
-        console.log('Response is' + response);
-        this.logOutOnDeletion();
-        // @ts-ignore
-        this.accounts = response;
-
-        },
+        this.navigateToList();
+       },
       error => {
-         console.log('Errors is ' + error.error.status);
-         this.message = 'Profile cannot be deleted , accounts with balance present';
-         this.invalidRequest = true;
+       console.log('Error status' + error);
+       if (error === '200')
+       {
+         this.logOutOnDeletion();
+       }
+       else
+         {
+           this.navigateToList();
+         }
       }
     );
   }

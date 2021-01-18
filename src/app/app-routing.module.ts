@@ -29,7 +29,7 @@ const routes: Routes = [
   {path: 'myaccount/profile/delete', component: DeleteCustomerComponent, canActivate: [AuthGuardGuard]},
   {path: 'logout', component: LogoutComponent, canActivate: [AuthGuardGuard]},
   {path: 'myaccount/:url', component: TransactionHistoryComponent, canActivate: [AuthGuardGuard]},
-  {path: 'errorpage', component: ErrorPageComponent}
+  {path: '**', component: ErrorPageComponent}
 ];
 
 @NgModule({

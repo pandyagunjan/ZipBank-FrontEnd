@@ -1,25 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {TransactionHistoryService} from '../services/transaction/transaction-history.service';
 import {Observable} from 'rxjs';
-// import {AccountHist} from './accountHist';
-import {ActivatedRoute, Params} from '@angular/router';
-// import {TransactionHist} from './transactionHist';
-
-export class AccountHist{
-
-  constructor(public accountNumber: string,
-              public balance: string,
-              public transactions: TransactionHist[]) {
-  }
-}
-
-export class TransactionHist {
-
-  constructor(public transactionDescription: string,
-              public transactionAmount: string,
-              public transactionBalance: string,
-              public transactionDate: string) {}
-}
+import {AccountHist} from './accountHist';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {TransactionHist} from './transactionHist';
 
 @Component({
   selector: 'app-transaction-history',
@@ -33,11 +17,10 @@ export class TransactionHistoryComponent implements OnInit {
   history: TransactionHist[];
 
   constructor(private historyService: TransactionHistoryService,
-              private route: ActivatedRoute) { }
+              private router: Router) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(url =>
-      this.url = url.toString());
+    this.url = this.router.url;
     console.log(this.url);
     this.getHistory(this.url);
   }

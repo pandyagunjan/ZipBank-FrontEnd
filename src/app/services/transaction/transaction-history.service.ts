@@ -3,7 +3,6 @@ import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {API_URL} from '../../app.apiurl';
 import {AccountHist} from '../../transaction-history/accountHist';
-import {Params} from '@angular/router';
 
 
 @Injectable({

@@ -12,7 +12,7 @@ account: Account;
   constructor(private router: Router, public listService: AccountListService) { }
 
   ngOnInit(): void {
-//    this.getAccount();
+    // this.getAccount();
   }
   // tslint:disable-next-line:typedef
   // getAccount()

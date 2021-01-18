@@ -20,6 +20,7 @@ import {TransactionHistoryComponent} from './transaction-history/transaction-his
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'logout', component: LogoutComponent},
   {path: 'accountpage', component: AccountPageComponent, canActivate: [AuthGuardGuard]},
   {path: 'myaccount', component: ListAccountsComponent, canActivate: [AuthGuardGuard]},
   {path: 'openaccount', component: RegistrationComponent},

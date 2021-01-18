@@ -27,6 +27,7 @@
 
 <div class="container">
   <div class="alert alert-warning" *ngIf='invalidRequest'> {{message}}</div>
+  <div class="alert alert-warning" *ngIf='!invalidRequest' routerLink="logout"></div>
   <table class="table">
     <thead>
     <tr>

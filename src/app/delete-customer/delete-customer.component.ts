@@ -19,9 +19,12 @@ export class DeleteCustomerComponent implements OnInit {
   {
     this.listService.deleteProfile().subscribe(
       response => {
-        console.log(response);
+        this.message = 'Profile has been deleted';
+        this.invalidRequest = false;
+        this.logOutOnDeletion();
         // @ts-ignore
-        this.accounts = response; },
+        // this.accounts = response;
+        },
       error => {
         this.message = 'Profile cannot be deleted , accounts with balance present';
         this.invalidRequest = true;
@@ -32,5 +35,9 @@ export class DeleteCustomerComponent implements OnInit {
   navigateToList()
   {
     this.router.navigate(['myaccount']);
+  }
+// tslint:disable-next-line:typedef
+logOutOnDeletion() {
+    this.router.navigate(['logout']);
   }
 }

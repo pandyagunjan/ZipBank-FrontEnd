@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AccountListService} from '../services/account-list/account-list.service';
 import {Router} from '@angular/router';
+import {AuthenticationService} from '../services/authentication/authenticationservice.service';
 
 @Component({
   selector: 'app-delete-customer',
@@ -21,7 +22,8 @@ export class DeleteCustomerComponent implements OnInit {
       response => {
         console.log(response);
         // @ts-ignore
-        this.accounts = response; },
+        this.accounts = response;
+        },
       error => {
         this.message = 'Profile cannot be deleted , accounts with balance present';
         this.invalidRequest = true;

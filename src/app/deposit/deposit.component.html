@@ -1,0 +1,43 @@
+<div class = "container">
+  <h3>Deposit
+    <mat-button class = close mat-dialog-close>X</mat-button>
+  </h3>
+
+  <form [formGroup] = "depositForm" (submit) = "deposit()">
+    <label>Amount to deposit</label>
+    <input type="text" formControlName = "transactionAmount">
+    <div *ngIf = "transactionAmount.invalid && (transactionAmount.dirty || transactionAmount.touched)" class = "alert">
+      <div *ngIf = "transactionAmount.errors.required">
+        Deposit amount is required
+      </div>
+      <div *ngIf = "transactionAmount.errors.pattern">
+        Input value with some pennies
+      </div>
+    </div>
+
+    <label>Account number </label>
+    <input type="text" formControlName = "accountNumber">
+    <div *ngIf = "accountNumber.invalid && (accountNumber.dirty || accountNumber.touched)" class = "alert">
+      <div *ngIf = "accountNumber.errors.required">
+        Account Number amount is required
+      </div>
+      <div *ngIf = "accountNumber.errors.pattern">
+        Account number should be 10 digits
+      </div>
+    </div>
+
+    <label>Routing number </label>
+    <input type="text" formControlName = "routingNumber">
+    <div *ngIf = "routingNumber.invalid && (routingNumber.dirty || routingNumber.touched)" class = "alert">
+      <div *ngIf = "routingNumber.errors.required">
+        Routing Number is required
+      </div>
+      <div *ngIf = "routingNumber.errors.pattern">
+        Routing number is invalid
+      </div>
+    </div>
+
+  </form>
+  <button id=save (click) = "deposit()" type = "submit" mat-dialog-close
+          [disabled] = "depositForm.invalid">Submit</button>
+</div>

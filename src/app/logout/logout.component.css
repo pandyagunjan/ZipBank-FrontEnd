@@ -1,6 +1,18 @@
-.container {
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  margin-top: 15%;
+
+
+.container{
+  display: grid;
+  place-content: center;
+  height: 100vh;
 }
+
+.content {
+ display: grid;
+  place-content: center;
+  height: 100vh;
+}
+
+
+
+
+

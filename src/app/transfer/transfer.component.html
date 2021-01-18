@@ -1,0 +1,32 @@
+<div class = "container">
+  <h3>Transfer
+    <mat-button class = close mat-dialog-close>X</mat-button>
+  </h3>
+
+  <form [formGroup] = "transferForm" (submit) = "transfer()">
+    <label>Amount to withdraw</label>
+    <input type="text" formControlName = "transactionAmount">
+    <div *ngIf = "transactionAmount.invalid && (transactionAmount.dirty || transactionAmount.touched)" class = "alert">
+      <div *ngIf = "transactionAmount.errors.required">
+        Withdraw amount is required
+      </div>
+      <div *ngIf = "transactionAmount.errors.pattern">
+        Input value with some pennies
+      </div>
+    </div>
+
+    <div formArrayName = "internalAccount">
+      <div *ngFor = "let formGroup of internalAccountArray.controls; let i=index" [formGroupName] = "i">
+          <label>Accounts</label>
+          <select id = "accountSelect" formControlName = "accountNumber">
+              <option *ngFor = "let account of accountsArray" [value]="account.accountNumber">
+                  {{account.accountType}} {{account.accountNumber}}
+              </option>
+          </select>    
+      </div>
+    </div>
+
+  </form>
+  <button id=save (click) = "transfer()" type = "submit" mat-dialog-close
+          [disabled] = "transferForm.invalid">Submit</button>
+</div>

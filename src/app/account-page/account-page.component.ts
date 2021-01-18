@@ -35,8 +35,8 @@ export class AccountPageComponent implements OnInit {
 
   account: Account;
   url: string;
-  numOfAccounts:number;
-
+  numOfAccounts: number;
+  urlMyAccount = 'http://localhost:8080/myaccount';
   constructor(private router: Router, public listService: AccountListService,
               public accountService: TransactionHistoryService,
               private dialog: MatDialog,
@@ -47,6 +47,7 @@ export class AccountPageComponent implements OnInit {
     this.getAllAccounts();
     this.url = this.router.url;
     this.getAccount(this.url);
+
   }
 
   private getAccount(url: string): void {
@@ -74,11 +75,11 @@ export class AccountPageComponent implements OnInit {
 
   getAllAccounts()
   {
-    this.listService.retrieveAllAccounts().subscribe(
+    this.listService.retrieveAllAccounts(this.urlMyAccount).subscribe(
       response => {
         //console.log(response);
         // @ts-ignore
-        //this.accountsArray = response; 
+        //this.accountsArray = response;
         this.numOfAccounts = response.length}
     );
   }

@@ -5,37 +5,39 @@
 
   <form [formGroup] = "withdrawForm" (submit) = "withdraw()">
     <label>Amount to withdraw</label>
-    <input type="text" formControlName = "amount">
-    <div *ngIf = "amount.invalid && (amount.dirty || amount.touched)" class = "alert">
-      <div *ngIf = "amount.errors.required">
-        Transaction amount is required
+    <input type="text" formControlName = "transactionAmount">
+    <div *ngIf = "transactionAmount.invalid && (transactionAmount.dirty || transactionAmount.touched)" class = "alert">
+      <div *ngIf = "transactionAmount.errors.required">
+        Withdraw amount is required
       </div>
-      <div *ngIf = "amount.errors.amount">
-        Amount must be valid
+      <div *ngIf = "transactionAmount.errors.pattern">
+        Input value with some pennies
       </div>
     </div>
+
     <label>Account number </label>
     <input type="text" formControlName = "accountNumber">
     <div *ngIf = "accountNumber.invalid && (accountNumber.dirty || accountNumber.touched)" class = "alert">
       <div *ngIf = "accountNumber.errors.required">
         Account Number amount is required
       </div>
-      <div *ngIf = "accountNumber.errors.accountNumber">
-        Amount must be valid
+      <div *ngIf = "accountNumber.errors.pattern">
+        Account number should be 10 digits
       </div>
     </div>
+
     <label>Routing number </label>
-    <input type="text" formControlName = "amount">
+    <input type="text" formControlName = "routingNumber">
     <div *ngIf = "routingNumber.invalid && (routingNumber.dirty || routingNumber.touched)" class = "alert">
       <div *ngIf = "routingNumber.errors.required">
-        Transaction amount is required
+        Routing Number is required
       </div>
-      <div *ngIf = "routingNumber.errors.routingNumber">
-        Amount must be valid
+      <div *ngIf = "routingNumber.errors.pattern">
+        Routing number is invalid
       </div>
     </div>
 
   </form>
-      <button id=save (click) = "withdraw()" type = "submit" mat-dialog-close
+  <button id=save (click) = "withdraw()" type = "submit" mat-dialog-close
           [disabled] = "withdrawForm.invalid">Submit</button>
 </div>

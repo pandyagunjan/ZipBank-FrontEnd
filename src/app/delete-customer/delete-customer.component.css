@@ -18,8 +18,8 @@ ul{
 }
 
 .container{
-  margin-top: 0px;
-  display:flex;
+  position: relative;
+  min-height: 100vh;
 }
 
 .row{

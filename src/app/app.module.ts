@@ -28,6 +28,7 @@ import { FooterComponent } from './footer/footer.component';
 import { DepositComponent } from './deposit/deposit.component';
 import { WithdrawComponent } from './withdraw/withdraw.component';
 import { TransferComponent } from './transfer/transfer.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 
@@ -50,7 +51,8 @@ import { TransferComponent } from './transfer/transfer.component';
     FooterComponent,
     DepositComponent,
     WithdrawComponent,
-    TransferComponent
+    TransferComponent,
+    ErrorPageComponent
 
   ],
   entryComponents: [AddressComponent, EmailComponent, PhoneComponent,

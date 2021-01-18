@@ -1,7 +1,8 @@
-
 <header>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <div><nav class="navbar-brand">ZipBank</nav></div>
+    <div>
+      <nav class="navbar-brand">ZipBank</nav>
+    </div>
 
     <ul class="navbar-nav">
       <li><a *ngIf="true" routerLink="/myaccount/profile" class="nav-link">My Profile</a></li>
@@ -13,25 +14,25 @@
 </header>
 
 <h1>
-  <div class = "title"><link rel="preconnect" href="https://fonts.gstatic.com">
+  <div class="title">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     My Accounts
   </div>
 </h1>
 
 <header>
-  <nav class="navbar navbar-expand-md navbar-light bg-transparent" >
+  <nav class="navbar navbar-expand-md navbar-light bg-transparent">
     <div class="container">
-
       <table class="table">
         <thead>
         <tr>
-          <th> Account Number </th>
-          <th> Routing Number </th>
-          <th> Account Type </th>
-          <th> Account Balance </th>
-          <th> Date Of Opening </th>
-          <th> Click to Load </th>
+          <th> Account Number</th>
+          <th> Routing Number</th>
+          <th> Account Type</th>
+          <th> Account Balance</th>
+          <th> Date Of Opening</th>
+          <th> Click to Load</th>
         </tr>
         </thead>
         <tbody>
@@ -41,18 +42,17 @@
           <td>{{account.accountType}}</td>
           <td>{{account.balance | currency}}</td>
           <td>{{account.dateOfOpening | date | uppercase}}</td>
-          <td><button (click)="navigateToAccount(account.encryptedUrl)" class="btn btn-warning">Load Account</button></td>
-        </tr>
+          <td>
+            <button (click)="navigateToAccount(account.encryptedUrl)" class="btn btn-warning">Load Account</button>
+          </td>
         </tbody>
       </table>
+      <div id="outerBtnDiv">
+        <div id="innerBtnDiv">
+          <button (click)="createAccount()" class="btn btn-warning">Create Account</button>
+        </div>
+      </div>
     </div>
   </nav>
-
-  <div id= "createAccountBtn">
-    <div id= "innerBtnDiv">
-      <button (click)="createAccount()" class = "btn btn-warning">Create Account</button>
-    </div>
-  </div>
-
 </header>
 

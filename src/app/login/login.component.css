@@ -21,7 +21,7 @@
 
 }
 
-.slider-image {
+/* .slider-image {
   height: 53vh !important;
   width: 100vh !important;
   padding-left: 20px;
@@ -34,13 +34,13 @@
   margin-right: 15%;
   font-family: 'Bebas Neue', cursive;
   
-}
+} */
 
 .title {
-  font-size: 28px;
+  /* font-size: 28px;
   margin-right: 75px;
   color: cadetblue;
-  border: 5px solid lightblue;
+  border: 5px solid lightblue; */
   font-family: 'Bebas Neue', cursive;
   text-align: center;
   /*cursor: -webkit-grabbing;*/

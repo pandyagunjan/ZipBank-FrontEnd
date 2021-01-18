@@ -1,9 +1,9 @@
 import { OnInit } from '@angular/core';
 import { Component} from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
+import { RegistrationService} from '../services/registration/registration.service';
 import { Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-
+  
 export class newUser{
   firstName?: string;
   middleName?: string;
@@ -53,7 +53,6 @@ export class TransAccount{
 })
 export class RegistrationComponent implements OnInit{
   profileForm: FormGroup;
-  url = 'http://localhost:8080/openaccount';
 
     //used to set the form to the object model for JSON payload
 
@@ -67,15 +66,10 @@ export class RegistrationComponent implements OnInit{
     transAcctArray: TransAccount[] = [];
     transArray: Transactions[] = [];
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private registrationService: RegistrationService) {
   }
 
-  postToServer(){
-    this.http.post(this.url, JSON.stringify(this.submitNewUser)).subscribe(
-      data => console.log('success!', data),
-      error => console.log('couldn\'t post because', error)
-    );
-  }
+  url = 'http://localhost:8080/openaccount';
 
   ngOnInit(): void{
 
@@ -172,7 +166,10 @@ export class RegistrationComponent implements OnInit{
     //console.log(this.profileForm.value);
     this.setSubmitUser();
     //console.log(JSON.stringify(this.submitNewUser))
-    this.postToServer();
+    this.registrationService.postToServer(this.url, JSON.stringify(this.submitNewUser)).subscribe(
+      response => {
+        alert("Registration successful")},
+    );
   }
 
   setSubmitUser(){

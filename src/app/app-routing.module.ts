@@ -13,6 +13,7 @@ import {LogoutComponent} from './logout/logout.component';
 import { ProfileComponent} from './profile/profile.component';
 import { AddressComponent} from './address/address.component';
 import {DeleteCustomerComponent} from './delete-customer/delete-customer.component';
+import {TransactionHistoryComponent} from './transaction-history/transaction-history.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,8 @@ const routes: Routes = [
   {path: 'myaccount/profile', component: ProfileComponent, canActivate: [AuthGuardGuard]},
   {path: 'myaccount/:url', component: AccountPageComponent, canActivate: [AuthGuardGuard]},
   {path: 'myaccount/profile/delete', component: DeleteCustomerComponent, canActivate: [AuthGuardGuard]},
+  {path: 'logout', component: LogoutComponent, canActivate: [AuthGuardGuard]},
+  {path: 'myaccount/:url', component: TransactionHistoryComponent, canActivate: [AuthGuardGuard]}
 ];
 
 @NgModule({

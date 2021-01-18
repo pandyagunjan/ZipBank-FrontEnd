@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   username = '';
   password = '';
   invalidLogin = false;
+  invalidLoginMessage = 'Please enter a valid Username & Password';
   error: any = null;
 
   myimage:string = "assets/Images2/finallogo.jpg";

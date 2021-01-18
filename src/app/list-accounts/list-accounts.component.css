@@ -5,7 +5,10 @@ h1{
   height: 50px;
   display:flex;
   align-items: center;
+
   border: 3px solid lightblue;
+  position: relative;
+
 }
 
 ul{
@@ -33,6 +36,12 @@ ul{
   background-color:rgb(245, 239, 239);
 }
 
+tr{
+  border-bottom: solid;
+  border-width: 0.1em;
+  border-color: rgb(230, 228, 228);
+}
+
 .col1{
   flex: 30%;
   font-size: larger;
@@ -46,7 +55,23 @@ ul{
   flex: 20%;
 }
 
+
 .title {
   font-family: 'Bebas Neue', cursive;
   font-size: 35px;
 }
+=======
+#createAccountBtn{
+  display: flex;
+  margin: 0 auto;
+}
+
+#innerBtnDiv{
+  display: inline;
+  margin: 0 auto;
+}
+
+.table{
+  margin-bottom: 0;
+}
+

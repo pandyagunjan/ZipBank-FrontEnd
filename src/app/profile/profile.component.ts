@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../services/profile/profile.service';
-import { MatDialog, MatDialogConfig} from "@angular/material/dialog";
-import {MatDialogRef} from "@angular/material/dialog"
+import { MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import {MatDialogRef} from '@angular/material/dialog';
 import { AddressComponent } from '../address/address.component';
 import {EmailComponent} from '../email/email.component';
 import {PhoneComponent} from '../phone/phone.component';
 import {Router} from '@angular/router';
+import {AuthenticationService} from '../services/authentication/authenticationservice.service';
 
 
 
@@ -28,7 +29,7 @@ export class Address{
   )
   {}
 }
-    
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -37,12 +38,13 @@ export class Address{
 
 export class ProfileComponent implements OnInit {
 
-  profiles : Profile;
+  profiles: Profile;
   moddedPhone: string;
 
   constructor(private profileService: ProfileService,
-    private dialog: MatDialog,
-    private router: Router) {
+              private dialog: MatDialog,
+              private router: Router,
+              public authenticationService: AuthenticationService) {
   }
 
   ngOnInit(): void {
@@ -58,29 +60,29 @@ export class ProfileComponent implements OnInit {
   {
     this.profileService.retrieveProfile().subscribe(
       response => {
-        //console.log(response); //for debugging
+        // console.log(response); //for debugging
         this.profiles = response;
-        //console.log(this.profiles);
-        this.moddedPhone = "("+this.profiles.phoneNumber.substring(0,3)+") "+
-        this.profiles.phoneNumber.substring(3,6)+"-"+this.profiles.phoneNumber.substring(6,10);
+        // console.log(this.profiles);
+        this.moddedPhone = '(' + this.profiles.phoneNumber.substring(0, 3) + ') ' +
+        this.profiles.phoneNumber.substring(3, 6) + '-' + this.profiles.phoneNumber.substring(6, 10);
       });
   }
 
   editAddress()
   {
     this.dialog.open(AddressComponent);
-    this.dialog.afterAllClosed.subscribe(()=>this.getProfile()); //refreshes the page after update
+    this.dialog.afterAllClosed.subscribe(() => this.getProfile()); // refreshes the page after update
   }
 
   editEmail()
   {
     this.dialog.open(EmailComponent);
-    this.dialog.afterAllClosed.subscribe(()=>this.getProfile()); //refreshes the page after update
+    this.dialog.afterAllClosed.subscribe(() => this.getProfile()); // refreshes the page after update
   }
 
   editPhone() {
     this.dialog.open(PhoneComponent);
-    this.dialog.afterAllClosed.subscribe(()=>this.getProfile()); //refreshes the page after update
+    this.dialog.afterAllClosed.subscribe(() => this.getProfile()); // refreshes the page after update
   }
 
 

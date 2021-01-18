@@ -1,0 +1,23 @@
+<div class="container">
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>transactionDescription</th>
+        <th>transactionAmount</th>
+        <th>transactionBalance</th>
+        <th>transactionDate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hist of history">
+        <td>{{hist.transactionDescription}}</td>
+        <td>{{hist.transactionAmount}}</td>
+        <td>{{hist.transactionBalance}}</td>
+        <td>{{hist.transactionDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

@@ -9,40 +9,36 @@ p {
   align-items:center;
   margin-top: 15%;
 
-
-  
-
 }
 
 .login-container {
   text-align: center;
   display: inline;
-  
-  
+}
+
+.alert {
+  text-align: center;
 }
 
 
 /* .login-container {
   color:#ff0000;
-  
+
 } */
 
 .title-container {
   width: 100%;
   text-align: center;
-
 }
 
 #UserNPassLink {
   font-family: 'Bebas Neue', cursive;
   font-size: 20px;
-
 }
 
 .input-container {
   margin-left: 364%;
   margin-right: 364%;
-  
 }
 
 #titlelink {
@@ -52,11 +48,9 @@ p {
   line-height: 100px;
   font-family: 'Bebas Neue', cursive;
   padding: 10px;
-  
-  
-  
   font-size: 80px;
   cursor: -webkit-grabbing;
+
   
   
 }
@@ -124,3 +118,8 @@ p {
   
   
 }
+
+
+
+}
+

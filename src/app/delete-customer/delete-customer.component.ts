@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AccountListService} from '../services/account-list/account-list.service';
 import {Router} from '@angular/router';
+import {AuthenticationService} from '../services/authentication/authenticationservice.service';
 
 @Component({
   selector: 'app-delete-customer',
@@ -19,12 +20,18 @@ export class DeleteCustomerComponent implements OnInit {
   {
     this.listService.deleteProfile().subscribe(
       response => {
-        console.log(response);
+        this.message = 'Profile has been deleted';
+        this.invalidRequest = false;
+        console.log('Response is' + response);
+        this.logOutOnDeletion();
         // @ts-ignore
-        this.accounts = response; },
+        this.accounts = response;
+
+        },
       error => {
-        this.message = 'Profile cannot be deleted , accounts with balance present';
-        this.invalidRequest = true;
+         console.log('Errors is ' + error.error.status);
+         this.message = 'Profile cannot be deleted , accounts with balance present';
+         this.invalidRequest = true;
       }
     );
   }
@@ -32,5 +39,9 @@ export class DeleteCustomerComponent implements OnInit {
   navigateToList()
   {
     this.router.navigate(['myaccount']);
+  }
+// tslint:disable-next-line:typedef
+logOutOnDeletion() {
+    this.router.navigate(['logout']);
   }
 }

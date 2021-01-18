@@ -23,7 +23,7 @@ export class Account {
 
 export class Transactions{
   transactionAmount?: any;
-  accounts?: TransAccount[] 
+  accounts?: TransAccount[]
 }
 
 export class TransAccount{
@@ -46,7 +46,7 @@ export class TransferComponent implements OnInit {
   submitTrans: Transactions = {};
   submitTransAccount: TransAccount = {};
   transAcctArray: TransAccount[] = [];
-
+  urlMyAccount = 'http://localhost:8080/myaccount';
   constructor(private transactionService: TransactionsService,
               private router: Router,
               public dialogRef: MatDialogRef<TransferComponent>,
@@ -99,7 +99,7 @@ export class TransferComponent implements OnInit {
 
   //sets the form data to the object before stringifying to the desired json format
   setSubmitTransfer(){
-    //console.log(this.useExternalAcct); 
+    //console.log(this.useExternalAcct);
     this.submitTransAccount.accountNumber = this.internalAccountArray.at(0).get("accountNumber").value;
     this.transAcctArray.push(this.submitTransAccount);
     this.submitTrans.accounts = this.transAcctArray;
@@ -114,7 +114,7 @@ export class TransferComponent implements OnInit {
 
   getAllAccounts()
   {
-    this.listService.retrieveAllAccounts().subscribe(
+    this.listService.retrieveAllAccounts(this.urlMyAccount).subscribe(
       response => {
         console.log(response);
         // @ts-ignore

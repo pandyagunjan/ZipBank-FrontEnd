@@ -26,6 +26,7 @@ export class Account {
 export class ListAccountsComponent implements OnInit {
  accounts: Account[];
  message: string;
+ url = 'http://localhost:8080/myaccount';
 
   constructor(public router: Router , public listService: AccountListService, private dialog: MatDialog,
               public authenticationService: AuthenticationService) { }
@@ -34,6 +35,7 @@ export class ListAccountsComponent implements OnInit {
     this.getAllAccounts();
   }
 
+  // tslint:disable-next-line:typedef
   get myAccounts(){
     return this.accounts;
   }
@@ -41,7 +43,7 @@ export class ListAccountsComponent implements OnInit {
   // tslint:disable-next-line:typedef
   getAllAccounts()
   {
-    this.listService.retrieveAllAccounts().subscribe(
+    this.listService.retrieveAllAccounts(this.url).subscribe(
       response => {
         console.log(response);
         // @ts-ignore
@@ -54,9 +56,9 @@ export class ListAccountsComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  navigateToAccount(url)
+  navigateToAccount(encryptedUrl)
   {
-    this.router.navigate(['myaccount', url]);
+    this.router.navigate(['myaccount', encryptedUrl]);
   }
 
   // tslint:disable-next-line:typedef

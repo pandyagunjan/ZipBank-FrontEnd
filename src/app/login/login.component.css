@@ -8,21 +8,23 @@ p {
   align-items:center;
   margin-top: 15%;
 
-  
+
 
 }
 
 .login-container {
   text-align: center;
   display: inline;
-  
-  
+}
+
+.alert {
+  text-align: center;
 }
 
 
 /* .login-container {
   color:#ff0000;
-  
+
 } */
 
 .title-container {
@@ -40,21 +42,21 @@ p {
 .input-container {
   margin-left: 364%;
   margin-right: 364%;
-  
+
 }
 
 #titlelink {
-  color: lightblue;
+  color: white;
   background-color: cadetblue;
   border: 5px solid lightblue;
   line-height: 100px;
   font-family: 'Bebas Neue', cursive;
   padding: 10px;
-  
-  
-  
+
+
+
   font-size: 80px;
   cursor: -webkit-grabbing;
-  
-  
+
+
 }

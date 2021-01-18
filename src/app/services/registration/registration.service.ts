@@ -3,6 +3,8 @@ import { HttpClient} from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { HttpErrorResponse} from '@angular/common/http'
+import {API_URL} from '../../app.apiurl';
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +20,11 @@ export class RegistrationService {
 
   postToServer(url, payload){
     return this.http.post(url, payload)
+    .pipe(catchError(this.handleError))
+  }
+
+  putToServer(url, payload){
+    return this.http.put(`${API_URL}${url}`, payload)
     .pipe(catchError(this.handleError))
   }
 

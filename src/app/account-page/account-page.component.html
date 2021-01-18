@@ -20,7 +20,7 @@
         <thead>
         <tr>
           <th class="account-number"> Account Number: {{account.accountNumber}}</th>
-          <th class="account-balance"> Account Balance: {{account.balance}} </th>
+          <th class="account-balance"> Account Balance: {{account.balance | currency:'USD'}} </th>
         </tr>
         </thead>
       </table>

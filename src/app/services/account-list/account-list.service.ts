@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {catchError} from 'rxjs/operators';
+import {throwError} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +11,9 @@ export class AccountListService {
   constructor(private http: HttpClient) { }
 
   // tslint:disable-next-line:typedef
-  retrieveAllAccounts()
+  retrieveAllAccounts(url)
   {
-    return this.http.get<Account[]>(`http://localhost:8080/myaccount`);
+    return this.http.get<Account[]>(url);
   }
 
   // tslint:disable-next-line:typedef
@@ -19,4 +21,5 @@ export class AccountListService {
   {
     return this.http.delete(`http://localhost:8080/myaccount/profile/delete`);
   }
+
 }

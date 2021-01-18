@@ -13,14 +13,17 @@ export class RegistrationService {
 
   constructor(private http: HttpClient) { }
 
+  // tslint:disable-next-line:contextual-lifecycle
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line:typedef
   postToServer(url, payload){
     return this.http.post(url, payload)
-    .pipe(catchError(this.handleError))
+    .pipe(catchError(this.handleError));
   }
 
+  // tslint:disable-next-line:typedef
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
@@ -31,11 +34,11 @@ export class RegistrationService {
       console.error(
         `${error.status}`
       );
-      if(`${error.status}` === "409"){
-        alert("Username already taken");
+      if (`${error.status}` === '409'){
+        alert('Username already taken');
       }
       else{
-        alert("insufficient funds");
+        alert('insufficient funds');
       }
     }
     // Return an observable with a user-facing error message.

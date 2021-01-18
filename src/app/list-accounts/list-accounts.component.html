@@ -45,7 +45,7 @@
           <td>{{account.accountNumber}}</td>
           <td>{{account.routingNumber}}</td>
           <td>{{account.accountType}}</td>
-          <td>{{account.balance}}</td>
+          <td>{{account.balance | currency}}</td>
           <td>{{account.dateOfOpening | date | uppercase}}</td>
           <td><button (click)="navigateToAccount(account.encryptedUrl)" class="btn btn-warning">Load Account</button></td>
         </tr>

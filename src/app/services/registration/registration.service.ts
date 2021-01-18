@@ -30,7 +30,7 @@ export class RegistrationService {
 
   putToServer(url, payload){
     return this.http.put(`${API_URL}${url}`, payload)
-    .pipe(catchError(this.handleError))
+    .pipe(catchError(this.handleError));
   }
 
   handleError(error: HttpErrorResponse) {

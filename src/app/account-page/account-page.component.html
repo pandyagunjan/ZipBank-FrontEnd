@@ -13,28 +13,31 @@
 
       </ul>
     </nav>
-
-    <h1 class="title"><link rel="preconnect" href="https://fonts.gstatic.com">
-      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
-      <div>Account Page</div>
+    <h1>
+      <div class="title">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        Account Page
+      </div>
     </h1>
   </header>
+
     <div class="container">
       <table class="table">
         <thead>
         <tr>
-          <th class="account-number"> Account Number: {{account.accountNumber}}</th>
-          <th class="account-balance"> Account Balance: {{account.balance | currency:'USD'}} </th>
+          <th class="account-number"> Account Number : {{account.accountNumber}}</th>
+          <th class="account-balance"> Account Balance : {{account.balance | currency:'USD'}} </th>
         </tr>
         </thead>
       </table>
+
+      <h2>
+        <div class="title">
+         Transaction History
+       </div>
+      </h2>
     <table class="table">
-      <thead>
-      <tr>
-        <th> Transaction History</th>
-      </tr>
-      </thead>
       <tbody>
         <app-transaction-history></app-transaction-history>
       </tbody>

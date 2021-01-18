@@ -25,15 +25,14 @@ export class RegistrationService {
     .pipe(catchError(this.handleError));
   }
 
-<<<<<<< HEAD
+
   // tslint:disable-next-line:typedef
-=======
+
   putToServer(url, payload){
     return this.http.put(`${API_URL}${url}`, payload)
     .pipe(catchError(this.handleError))
   }
 
->>>>>>> b190437a90154eb3111e02abb4b998aca18b8221
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

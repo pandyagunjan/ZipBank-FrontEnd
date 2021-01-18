@@ -21,13 +21,15 @@ export class DeleteCustomerComponent implements OnInit {
       response => {
         this.message = 'Profile has been deleted';
         this.invalidRequest = false;
+        console.log('Response is' + response);
         this.logOutOnDeletion();
         // @ts-ignore
         // this.accounts = response;
         },
       error => {
-        this.message = 'Profile cannot be deleted , accounts with balance present';
-        this.invalidRequest = true;
+         console.log('Errors is ' + error.error.status);
+         this.message = 'Profile cannot be deleted , accounts with balance present';
+         this.invalidRequest = true;
       }
     );
   }

@@ -37,7 +37,7 @@ export class AccountPageComponent implements OnInit {
   constructor(private router: Router, public listService: AccountListService,
               public accountService: TransactionHistoryService,
               private dialog: MatDialog,
-             public authenticationService: AuthenticationService) {
+              public authenticationService: AuthenticationService) {
   }
 
   ngOnInit(): void {

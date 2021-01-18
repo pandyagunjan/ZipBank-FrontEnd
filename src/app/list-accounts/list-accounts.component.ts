@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {AccountListService} from '../services/account-list/account-list.service';
 import { MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { CreateaccountComponent } from '../createaccount/createaccount.component';
+import {AuthenticationService} from '../services/authentication/authenticationservice.service';
 
 export class Account {
   constructor(
@@ -26,7 +27,8 @@ export class ListAccountsComponent implements OnInit {
  accounts: Account[];
  message: string;
 
-  constructor(public router: Router , public listService: AccountListService, private dialog: MatDialog) { }
+  constructor(public router: Router , public listService: AccountListService, private dialog: MatDialog,
+              public authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.getAllAccounts();

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Account} from '../list-accounts/list-accounts.component';
 import {AccountListService} from '../services/account-list/account-list.service';
 import {Router} from '@angular/router';
+import {AuthenticationService} from '../services/authentication/authenticationservice.service';
 import {TransactionHistoryService} from '../services/transaction/transaction-history.service';
 import {MatDialog} from '@angular/material/dialog';
 import {DepositComponent} from '../deposit/deposit.component';
@@ -22,18 +23,21 @@ export class TransactionHist {
               public transactionBalance: string,
               public transactionDate: string) {}
 }
+
 @Component({
   selector: 'app-account-page',
   templateUrl: './account-page.component.html',
   styleUrls: ['./account-page.component.css']
 })
 export class AccountPageComponent implements OnInit {
+
   account: Account;
   url: string;
 
   constructor(private router: Router, public listService: AccountListService,
               public accountService: TransactionHistoryService,
-              private dialog: MatDialog) {
+              private dialog: MatDialog,
+             public authenticationService: AuthenticationService) {
   }
 
   ngOnInit(): void {

@@ -25,6 +25,7 @@ const routes: Routes = [
   {path: 'myaccount/profile', component: ProfileComponent, canActivate: [AuthGuardGuard]},
   {path: 'myaccount/:url', component: AccountPageComponent, canActivate: [AuthGuardGuard]},
   {path: 'myaccount/profile/delete', component: DeleteCustomerComponent, canActivate: [AuthGuardGuard]},
+  {path: 'logout', component: LogoutComponent, canActivate: [AuthGuardGuard]},
   {path: 'myaccount/:url', component: TransactionHistoryComponent, canActivate: [AuthGuardGuard]}
 ];
 

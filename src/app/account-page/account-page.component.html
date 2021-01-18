@@ -9,6 +9,8 @@
         <li><a *ngIf="true" (click)="openDeposit()" class="nav-link">Deposit</a></li>
         <li><a *ngIf="true" routerLink="/myaccount/profile" class="nav-link">Withdraw</a></li>
         <li><a *ngIf="true" routerLink="/myaccount/profile" class="nav-link">Transfer</a></li>
+        <li><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>
+
       </ul>
     </nav>
     <h1 class="title">

@@ -1,5 +1,6 @@
 p {
   color: #ff0000;
+
 }
 
 .container {
@@ -7,6 +8,7 @@ p {
   display: flex;
   align-items:center;
   margin-top: 15%;
+
 }
 
 .login-container {
@@ -49,5 +51,75 @@ p {
   font-size: 80px;
   cursor: -webkit-grabbing;
 
+  
+  
+}
+
+.image-container {
+  padding-right: 800px;
+  image-orientation:from-image;
+  height: 200px;
+  margin-left: 42%;
+  margin-right: 42%;
+  background-color: cadetblue;
+}
+
+.slider-image {
+  height: 53vh !important;
+  width: 100vh !important;
+  padding-left: 20px;
+  padding-right: 20px;
+  
+  
+}
+
+.subtitle {
+  font-size: 20px;
+  margin-right: 15%;
+  font-family: 'Bebas Neue', cursive;
+  
+}
+
+.title {
+  font-size: 28px;
+  margin-right: 75px;
+  color: cadetblue;
+  font-family: 'Bebas Neue', cursive;
+  
+}
+
+.quote-wrapper {
+  height: 300px;
+  position: relative;
+  width: 300px;
+  
+  
+  
+}
+
+.text {
+  background: radial-gradient(ellipse at center,
+  rgba(0, 158, 160, 1) 0%,
+  rgba(0, 158, 160, 1) 70%,
+  rgba(0, 128, 172, 0) 70.3%
+  );
+  height: 300px;
+  width: 40%;
+  color: white;
+  position: relative;
+  padding-top: 100px;
+  text-align: center;
+  margin-left: 800px;
+  margin-bottom: 900px;
+  font-size: 20px;
+  font-family: 'Bebas Neue', cursive;
+  
+  
+  
+  
+}
+
+
 
 }
+

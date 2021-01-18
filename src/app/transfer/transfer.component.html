@@ -1,0 +1,41 @@
+<div class = "container">
+  <h3>Transfer
+    <mat-button class = close mat-dialog-close>X</mat-button>
+  </h3>
+
+  <form [formGroup] = "transferForm" (submit) = "transfer()">
+    <label>Amount to transfer</label>
+    <input type="text" formControlName = "amount">
+    <div *ngIf = "amount.invalid && (amount.dirty || amount.touched)" class = "alert">
+      <div *ngIf = "amount.errors.required">
+        Transaction amount is required
+      </div>
+      <div *ngIf = "amount.errors.amount">
+        Amount must be valid
+      </div>
+    </div>
+    <label>Account number </label>
+    <input type="text" formControlName = "accountNumber">
+    <div *ngIf = "accountNumber.invalid && (accountNumber.dirty || accountNumber.touched)" class = "alert">
+      <div *ngIf = "accountNumber.errors.required">
+        Account Number amount is required
+      </div>
+      <div *ngIf = "accountNumber.errors.accountNumber">
+        Amount must be valid
+      </div>
+    </div>
+    <label>Routing number </label>
+    <input type="text" formControlName = "amount">
+    <div *ngIf = "routingNumber.invalid && (routingNumber.dirty || routingNumber.touched)" class = "alert">
+      <div *ngIf = "routingNumber.errors.required">
+        Transaction amount is required
+      </div>
+      <div *ngIf = "routingNumber.errors.routingNumber">
+        Amount must be valid
+      </div>
+    </div>
+
+  </form>
+  <button id=save (click) = "transfer()" type = "submit" mat-dialog-close
+          [disabled] = "transferForm.invalid">Submit</button>
+</div>

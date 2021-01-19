@@ -1,3 +1,4 @@
+
 html{
   background-color: white;
 }
@@ -5,48 +6,51 @@ h1{
   background-color: rgb(14, 107, 136);
   display:flex;
 }
+
 .title{
   color: white;
   text-align: center;
+  margin: 0 auto;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 35px;
 }
+
 .container{
   position: relative;
   min-height: 100vh;
+  margin: 0 auto;
+  width: 100%
 }
 
-
-.transaction-history{
-  background-color: white;
+#inforow{
+  display: inline;
 }
 
-.transaction{
-  background-color: white;
-}
-
-form{
+#accountnumber{
+  float: right;
+  width: 50%;
   text-align: center;
 }
-.row{
-  display: flex;
-  background-color:rgb(245, 239, 239);
+
+#accountbalance{
+  float: left;
+  width: 50%;
+  text-align: center;
 }
 
-.col1{
-  flex: 30%;
-  font-size: larger;
-}
-
-.col2{
-  flex: 50%;
-}
-
-.col3{
-  flex: 20%;
-}
-
-.title {
+/* .title {
   font-family: 'Bebas Neue', cursive;
   font-size: 35px;
+} */
+#title{
+  text-align: center;
+}
 
+tbody{
+  text-align: center;
+  align-content: center;
+}
 
+#transactions{
+  margin: 0 auto;
 }

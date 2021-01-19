@@ -4,14 +4,14 @@ import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { HttpErrorResponse} from '@angular/common/http'
 import {API_URL} from '../../app.apiurl';
+import {HttpHeaders} from '@angular/common/http';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegistrationService {
-
-
 
   constructor(private http: HttpClient) { }
 
@@ -20,9 +20,12 @@ export class RegistrationService {
   }
 
   // tslint:disable-next-line:typedef
+
+  headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+
   postToServer(url, payload){
-    return this.http.post(url, payload)
-    .pipe(catchError(this.handleError));
+    return this.http.post(url, payload, {headers:this.headers})
+   .pipe(catchError(this.handleError))
   }
 
 
@@ -30,7 +33,7 @@ export class RegistrationService {
 
   putToServer(url, payload){
     return this.http.put(`${API_URL}${url}`, payload)
-    .pipe(catchError(this.handleError))
+   .pipe(catchError(this.handleError))
   }
 
   handleError(error: HttpErrorResponse) {
@@ -43,11 +46,11 @@ export class RegistrationService {
       console.error(
         `${error.status}`
       );
-      if (`${error.status}` === '409'){
-        alert('Username already taken');
+      if(`${error.status}` === "409"){
+        alert("Username already taken");
       }
       else{
-        alert('insufficient funds');
+        alert("insufficient funds");
       }
     }
     // Return an observable with a user-facing error message.

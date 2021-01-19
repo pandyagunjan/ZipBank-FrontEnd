@@ -279,8 +279,17 @@
 
         </div>
 
-        <button class = "btn btn-warning" type="submit"
-        >Submit</button>
+        <div id = "btnContainer">
+            <div id="cancelBtn">
+                <button class = "btn btn-warning cancel" (click) = "navigateToLogin()"
+                >Cancel Application</button>
+            </div>
+            <div id="submitBtn">
+                <button class = "btn btn-warning" type="submit"
+                >Submit</button>
+            </div>
+        </div>
+
       </form>
       
 </div>

@@ -3,6 +3,8 @@ import { Component} from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { RegistrationService} from '../services/registration/registration.service';
 import { Validators } from '@angular/forms';
+import { HttpClient} from '@angular/common/http';
+import { Router} from '@angular/router';
 
 export class newUser{
   firstName?: string;
@@ -66,7 +68,7 @@ export class RegistrationComponent implements OnInit{
     transAcctArray: TransAccount[] = [];
     transArray: Transactions[] = [];
 
-  constructor(private fb: FormBuilder, private registrationService: RegistrationService) {
+  constructor(private fb: FormBuilder, private registrationService: RegistrationService, private http: HttpClient, private router: Router) {
   }
 
   url = 'http://localhost:8080/openaccount';
@@ -165,12 +167,19 @@ export class RegistrationComponent implements OnInit{
     // TODO: Use EventEmitter with form value
     // console.log(this.profileForm.value);
     this.setSubmitUser();
-    // console.log(JSON.stringify(this.submitNewUser))
-    this.registrationService.postToServer(this.url, JSON.stringify(this.submitNewUser)).subscribe(
+    //console.log(JSON.stringify(this.submitNewUser))
+    this.registrationService.postToServer(this.url,JSON.stringify(this.submitNewUser)).subscribe(
       response => {
-        alert('Registration successful'); },
-    );
-  }
+       alert('Registration successful');
+       this.navigateToLogin();
+       },
+     );
+    }
+    // tslint:disable-next-line:typedef
+    navigateToLogin()
+    {
+     this.router.navigate(['']);
+    }
 
   setSubmitUser(){
     this.submitTransAccount.accountNumber = this.profileForm.get('accountNumber').value;

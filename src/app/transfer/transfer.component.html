@@ -4,7 +4,7 @@
   </h3>
 
   <form [formGroup] = "transferForm" (submit) = "transfer()">
-    <label>Amount to withdraw</label>
+    <label>Amount to transfer</label>
     <input type="text" formControlName = "transactionAmount">
     <div *ngIf = "transactionAmount.invalid && (transactionAmount.dirty || transactionAmount.touched)" class = "alert">
       <div *ngIf = "transactionAmount.errors.required">
@@ -22,7 +22,7 @@
               <option *ngFor = "let account of accountsArray" [value]="account.accountNumber">
                   {{account.accountType}} {{account.accountNumber}}
               </option>
-          </select>    
+          </select>
       </div>
     </div>
 

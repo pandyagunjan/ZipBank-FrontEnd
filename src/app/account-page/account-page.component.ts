@@ -24,6 +24,7 @@ export class TransactionHist {
               public transactionAmount: string,
               public transactionBalance: string,
               public transactionDate: string) {}
+
 }
 
 @Component({
@@ -53,7 +54,7 @@ export class AccountPageComponent implements OnInit {
   private getAccount(url: string): void {
     this.accountService.fetchAccount(url).subscribe(account => {
         this.account = account;
-        //console.log(account);
+        // console.log(account);
       }
     );
   }
@@ -61,7 +62,7 @@ export class AccountPageComponent implements OnInit {
   openDeposit(): void{
     this.dialog.open(DepositComponent);
     this.dialog.afterAllClosed.subscribe(() => this.getAccount(this.url));
-  }
+   }
 
   openWithdraw(): void{
     this.dialog.open(WithdrawComponent);
@@ -77,10 +78,10 @@ export class AccountPageComponent implements OnInit {
   {
     this.listService.retrieveAllAccounts(this.urlMyAccount).subscribe(
       response => {
-        //console.log(response);
+        // console.log(response);
         // @ts-ignore
-        //this.accountsArray = response;
-        this.numOfAccounts = response.length}
+        // this.accountsArray = response;
+        this.numOfAccounts = response.length;}
     );
   }
 }

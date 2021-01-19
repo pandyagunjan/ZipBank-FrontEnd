@@ -95,6 +95,7 @@ export class TransferComponent implements OnInit {
     console.log(JSON.stringify(this.submitTrans));
     console.log(this.url);
     this.registrationService.putToServer(this.url, JSON.stringify(this.submitTrans)).subscribe();
+    location.reload();
   }
 
   //sets the form data to the object before stringifying to the desired json format

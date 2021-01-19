@@ -73,7 +73,7 @@ button:disabled {
 }
 
 h1{
-    background-color: rgb(14, 107, 136);
+    background-color: cadetblue;
     margin-top: 0px;
     height: 100px;
     display:flex;

@@ -7,7 +7,7 @@ import {RegistrationService} from '../services/registration/registration.service
 
 export class Transactions{
   transactionAmount?: any;
-  accounts?: TransAccount[] 
+  accounts?: TransAccount[]
 }
 
 export class TransAccount{
@@ -63,6 +63,7 @@ export class WithdrawComponent implements OnInit {
     console.log(JSON.stringify(this.submitTrans));
     console.log(this.url);
     this.registrationService.putToServer(this.url, JSON.stringify(this.submitTrans)).subscribe();
+    location.reload();
   }
 
   private retrieveAccountUrl(): void{
@@ -71,7 +72,7 @@ export class WithdrawComponent implements OnInit {
 
   //sets the form data to the object before stringifying to the desired json format
   setSubmitDeposit(){
-    //console.log(this.useExternalAcct); 
+    //console.log(this.useExternalAcct);
     this.submitTransAccount.accountNumber = this.withdrawForm.get("accountNumber").value;
     this.submitTransAccount.routingNumber = this.withdrawForm.get("routingNumber").value;
     this.transAcctArray.push(this.submitTransAccount);

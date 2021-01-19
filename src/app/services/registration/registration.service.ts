@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { HttpErrorResponse} from '@angular/common/http'
+import { HttpErrorResponse} from '@angular/common/http';
 import {API_URL} from '../../app.apiurl';
 
 
@@ -30,7 +30,7 @@ export class RegistrationService {
 
   putToServer(url, payload){
     return this.http.put(`${API_URL}${url}`, payload)
-    .pipe(catchError(this.handleError))
+    .pipe(catchError(this.handleError));
   }
 
   handleError(error: HttpErrorResponse) {

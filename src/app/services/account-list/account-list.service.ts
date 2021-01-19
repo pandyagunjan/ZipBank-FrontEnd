@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
-import {Router} from '@angular/router';
-
+import {API_URL} from '../../app.apiurl';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +18,7 @@ export class AccountListService {
   // tslint:disable-next-line:typedef
   deleteProfile()
   {
-    return this.http.delete(`http://localhost:8080/myaccount/profile/delete`).pipe(catchError(this.handleError));
+    return this.http.delete(`${API_URL}/myaccount/profile/delete`).pipe(catchError(this.handleError));
   }
   // tslint:disable-next-line:typedef
   handleError(error: HttpErrorResponse) {

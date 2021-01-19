@@ -18,7 +18,7 @@
     <div formArrayName = "internalAccount">
       <div *ngFor = "let formGroup of internalAccountArray.controls; let i=index" [formGroupName] = "i">
           <label>Accounts</label>
-          <select id = "accountSelect" (change) = "onChange($event.target.value)" formControlName = "accountNumber">
+          <select id = "accountSelect" formControlName = "accountNumber">
               <option *ngFor = "let account of accountsArray" [value]="account.accountNumber">
                   {{account.accountType}} {{account.accountNumber}}
               </option>
@@ -30,3 +30,5 @@
   <button id=save (click) = "transfer()" type = "submit" mat-dialog-close
           >Submit</button>
 </div>
+
+<!-- (change) = "onChange($event.target.value)"  -->

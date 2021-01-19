@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormBuilder, FormGroup, NgModel, Validators} from '@angular/forms';
 import {TransactionsService} from '../services/transaction/transactions.service';
 import {Router} from '@angular/router';
 import {MatDialogRef} from '@angular/material/dialog';
@@ -23,7 +23,7 @@ export class Account {
 
 export class Transactions{
   transactionAmount?: any;
-  accounts?: TransAccount[] 
+  accounts?: TransAccount[]
 }
 
 export class TransAccount{
@@ -42,11 +42,13 @@ export class TransferComponent implements OnInit {
   url: string;
   currentAccount: Account;
   accountsArray: Account[];
+  rawAccountsArray: Account[];
+  selectedAccount: number = 0;
 
   submitTrans: Transactions = {};
   submitTransAccount: TransAccount = {};
   transAcctArray: TransAccount[] = [];
-
+  urlMyAccount = 'http://localhost:8080/myaccount';
   constructor(private transactionService: TransactionsService,
               private router: Router,
               public dialogRef: MatDialogRef<TransferComponent>,
@@ -81,7 +83,7 @@ export class TransferComponent implements OnInit {
   }
 
   get accountNumber(){
-    return this.internalAccountArray.get("accountNumber");
+    return this.internalAccountArray.at(0).get("accountNumber");
   }
 
   private retrieveAccountUrl(): void{
@@ -97,7 +99,7 @@ export class TransferComponent implements OnInit {
 
   //sets the form data to the object before stringifying to the desired json format
   setSubmitTransfer(){
-    //console.log(this.useExternalAcct); 
+    //console.log(this.useExternalAcct);
     this.submitTransAccount.accountNumber = this.internalAccountArray.at(0).get("accountNumber").value;
     this.transAcctArray.push(this.submitTransAccount);
     this.submitTrans.accounts = this.transAcctArray;
@@ -106,15 +108,16 @@ export class TransferComponent implements OnInit {
 
   getAllAccounts()
   {
-    this.listService.retrieveAllAccounts().subscribe(
+    this.listService.retrieveAllAccounts(this.urlMyAccount).subscribe(
         response=>{
           //console.log(response);
-          this.accountsArray = response as unknown as Account[]; //not sure why this is required to assign the response to accountsArray
+          this.rawAccountsArray = response as unknown as Account[]; //not sure why this is required to assign the response to accountsArray
           this.getAccount(this.router.url);
         }
     );
   }
 
+  //get the current account user is in
   private getAccount(url: string): void {
     this.accountService.fetchAccount(url).subscribe(account => {
         this.currentAccount = account;
@@ -124,9 +127,10 @@ export class TransferComponent implements OnInit {
     );
   }
 
+  //remove the account the user is currently in from the selection of accounts to transfer to
   filterOutCurrentAccount(){
-    this.accountsArray = this.accountsArray.filter(a=>a.accountNumber!=this.currentAccount.accountNumber);
-    console.log("transferable accounts are:"+ JSON.stringify(this.accountsArray));
+    this.accountsArray = this.rawAccountsArray.filter(a=>a.accountNumber!=this.currentAccount.accountNumber);
+    //console.log("transferable accounts are:"+ JSON.stringify(this.accountsArray));
 }
 }
 

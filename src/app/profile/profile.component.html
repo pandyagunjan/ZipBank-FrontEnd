@@ -1,10 +1,11 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
 <header>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div><nav class="navbar-brand"> ZipBank</nav></div>
 
     <ul class="navbar-nav">
       <li><a *ngIf="true" routerLink="/myaccount/profile/delete" class="nav-link">Delete Profile</a></li>
-      <li><a *ngIf="true" routerLink="/myaccount" class="nav-link">List Accounts</a></li>
+      <li><a *ngIf="true" routerLink="/myaccount" class="nav-link">My Accounts</a></li>
       <li><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>
       <!-- <li><a *ngIf="router.url === '/myaccount'" class="pageTitle">My Accounts</a></li>
       <li><a *ngIf="isHomeRoute()">My Accounts</a></li> -->
@@ -19,7 +20,8 @@
   </nav>
 </header>
 <h1>
-  <div class = title>
+  <div class = "title"><link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     My Profile
   </div>
 </h1>
@@ -27,7 +29,7 @@
     <ul style="list-style-type:none;">
         <div class = row>
             <div class = col1>
-                Address
+              <i class="fa fa-envelope-o"></i>  Address
             </div>
             <div class = col2>
                 <li>{{profiles.address.firstLine}}</li>
@@ -40,7 +42,7 @@
         </div>
         <div class = row>
             <div class = col1>
-                Email
+              <i class="fa fa-envelope-o"></i>    Email
             </div>
             <div class = col2>
                 {{profiles.email}}
@@ -51,6 +53,7 @@
         </div>
         <div class = row>
             <div class = col1>
+              <i class="fa fa-phone"></i>
                 Phone
             </div>
             <div class = col2>

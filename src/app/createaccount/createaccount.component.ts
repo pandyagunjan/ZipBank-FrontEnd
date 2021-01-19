@@ -27,7 +27,7 @@ export class NewAccount{
 
 export class Transactions{
      transactionAmount?: any;
-     accounts?: TransAccount[] 
+     accounts?: TransAccount[]
 }
 
 export class TransAccount{
@@ -56,17 +56,18 @@ export class CreateaccountComponent implements OnInit {
   transArray: Transactions[] = [];
 
   url = 'http://localhost:8080/myaccount/create';
-
+  urlMyAccount = 'http://localhost:8080/myaccount';
+  
   constructor(private fb: FormBuilder,
     private dialogRef: MatDialogRef<CreateaccountComponent>,
     private http: HttpClient,
     private listService: AccountListService,
     private registrationService: RegistrationService) { }
-    
+
   ngOnInit(): void {
 
     this.getAllAccounts();
-  
+
     this.createAccountForm = this.fb.group({
       accountType: [,Validators.required],
       transactionAmount: [, [Validators.required,Validators.pattern('^\\d+\\.\\d\\d$')]], //must be a double XX.XX
@@ -135,7 +136,7 @@ export class CreateaccountComponent implements OnInit {
 
   //sets the form data to the object before stringifying to the desired json format
   setSubmitAccount(){
-    console.log(this.useExternalAcct); 
+    console.log(this.useExternalAcct);
     if(this.useExternalAcct){
       //this.submitTransAccount.accountNumber = this.externalAccountArray.at(this.onChange().get("accountNumber").value;
       this.submitTransAccount.routingNumber = this.externalAccountArray.at(0).get("routingNumber").value;
@@ -172,7 +173,7 @@ export class CreateaccountComponent implements OnInit {
 
   getAllAccounts()
   {
-    this.listService.retrieveAllAccounts().subscribe(
+    this.listService.retrieveAllAccounts(this.urlMyAccount).subscribe(
       response => {
         console.log(response);
         // @ts-ignore

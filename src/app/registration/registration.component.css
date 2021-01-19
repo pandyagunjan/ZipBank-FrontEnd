@@ -89,6 +89,23 @@ h3{
   height: 70px;
 }
 
+#btnContainer{
+  width: 100%;
+  display: inline;
+}
+
+#cancelBtn{
+  float: left;
+}
+
+#submitBtn{
+  float:right;
+}
+
+.cancel{
+  background-color: red;
+}
+
 .title{
   color: white;
   text-align: center;

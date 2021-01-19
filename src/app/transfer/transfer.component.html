@@ -8,7 +8,7 @@
     <input type="text" formControlName = "transactionAmount">
     <div *ngIf = "transactionAmount.invalid && (transactionAmount.dirty || transactionAmount.touched)" class = "alert">
       <div *ngIf = "transactionAmount.errors.required">
-        Withdraw amount is required
+        Transfer amount is required
       </div>
       <div *ngIf = "transactionAmount.errors.pattern">
         Input value with some pennies
@@ -28,5 +28,7 @@
 
   </form>
   <button id=save (click) = "transfer()" type = "submit" mat-dialog-close
-          [disabled] = "transferForm.invalid">Submit</button>
+          >Submit</button>
 </div>
+
+<!-- (change) = "onChange($event.target.value)"  -->

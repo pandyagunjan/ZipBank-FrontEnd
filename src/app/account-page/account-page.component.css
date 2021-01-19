@@ -1,90 +1,56 @@
 
+html{
+  background-color: white;
+}
 h1{
-  background-color: cadetblue ;
-  margin-top: 0;
-  height: 50px;
+  background-color: rgb(14, 107, 136);
   display:flex;
-  align-items: center;
-  border: 3px solid lightblue;
-  position: relative;
 }
 
-h2{
-  background-color: cadetblue ;
-  margin-top: 0;
-  height: 40px;
-  display:flex;
-  align-items: center;
-  border: 3px solid lightblue;
-  position: relative;
-}
-ul{
-  width: 100%
-}
 .title{
   color: white;
   text-align: center;
   margin: 0 auto;
-}
-.container{
-  position: relative;
-  min-height: 100vh;
-  display: block;
-}
-.row{
-  padding:20px;
-  margin:10px;
-  height: 150px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  background-color:rgb(245, 239, 239);
-}
-tr{
-  border-bottom: solid;
-  border-width: 0.1em;
-  border-color: rgb(230, 228, 228);
-}
-
-.col1{
-  flex: 30%;
-  font-size: larger;
-}
-
-.col2{
-  flex: 50%;
-}
-
-.col3{
-  flex: 20%;
-}
-
-
-.title {
   font-family: 'Bebas Neue', cursive;
   font-size: 35px;
 }
-#createAccountBtn{
-  display: flex;
+
+.container{
+  position: relative;
+  min-height: 100vh;
   margin: 0 auto;
+  width: 100%
 }
-#outerBtnDiv{
-  width: 100%;
-  display: flex;
-  margin-top: 25px;
+
+#inforow{
+  display: inline;
 }
-#innerBtnDiv{
+
+#accountnumber{
+  float: right;
+  width: 50%;
+  text-align: center;
+}
+
+#accountbalance{
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+
+/* .title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 35px;
+} */
+#title{
+  text-align: center;
+}
+
+tbody{
+  text-align: center;
+  align-content: center;
+}
+
+#transactions{
   margin: 0 auto;
-}
-
-
-.table{
-  margin-bottom: 0;
-}
-
-label {
-  display: block;
-  margin: .5em 0;
-  color: #607D8B;
-  font-weight: bold;
 }

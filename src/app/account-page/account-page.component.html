@@ -18,23 +18,23 @@
       <div class="title">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-        My Accounts
+        Account Overview
       </div>
     </h1>
 
   </header>
-    <div class="container">
-      
-      <div id="inforow">
-        <div id= "accountnumber">
-          Account Number: {{account.accountNumber}}
-        </div>
-        <div id="accountbalance">
-          Account Balance: {{account.balance | currency:'USD'}} 
-        </div>
+  <div class="container">
+
+    <div id="inforow">
+      <div id= "accountnumber">
+        Account Number: {{account.accountNumber}}
       </div>
-      
-      <div id="transactions">
-          <app-transaction-history></app-transaction-history>
+      <div id="accountbalance">
+        Account Balance: {{account.balance | currency:'USD'}}
       </div>
-</div>
+    </div>
+
+    <div id="transactions">
+      <app-transaction-history></app-transaction-history>
+    </div>
+  </div>

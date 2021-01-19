@@ -25,7 +25,7 @@ export class RegistrationService {
 
   postToServer(url, payload){
     return this.http.post(url, payload, {headers:this.headers})
-   .pipe(catchError(this.handleError))
+      .pipe(catchError(this.handleError))
   }
 
 
@@ -33,7 +33,7 @@ export class RegistrationService {
 
   putToServer(url, payload){
     return this.http.put(`${API_URL}${url}`, payload)
-   .pipe(catchError(this.handleError))
+      .pipe(catchError(this.handleError))
   }
 
   handleError(error: HttpErrorResponse) {

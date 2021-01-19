@@ -1,0 +1,22 @@
+<div class = "container">
+    <h3>Edit Phone Number
+        <mat-button class = close mat-dialog-close>X</mat-button>
+    </h3>
+
+        <form [formGroup] = "phoneForm" (submit) = "onSubmit()">
+            <label>Phone Number</label>
+            <input type="text" formControlName = "phoneNumber">
+            <div *ngIf = "phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class = "alert">
+                <div *ngIf = "phoneNumber.errors.required">
+                    Phone number is required
+                </div>
+                <div *ngIf = "phoneNumber.errors.pattern">
+                    Phone number is invalid
+                </div>
+            </div>
+
+         </form>
+
+         <button id=save (click) = "onSubmit()" type = "submit" mat-dialog-close
+         [disabled] = "phoneForm.invalid">Save</button>
+</div>

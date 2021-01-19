@@ -1,0 +1,65 @@
+
+html{
+  background-color: white;
+}
+h1{
+  background-color: cadetblue ;
+  margin-top: 0px;
+  height: 50px;
+  display:flex;
+  align-items: center;
+}
+h2{
+  background-color: cadetblue ;
+  margin-top: 0px;
+  height: 35px;
+  display:flex;
+  align-items: center;
+}
+.title{
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 35px;
+}
+
+.container{
+  position: relative;
+  min-height: 100vh;
+  margin: 0 auto;
+  width: 100%
+}
+
+#inforow{
+  display: inline;
+}
+
+#accountnumber{
+  float: right;
+  width: 50%;
+  text-align: center;
+}
+
+#accountbalance{
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+
+/* .title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 35px;
+} */
+#title{
+  text-align: center;
+}
+
+tbody{
+  text-align: center;
+  align-content: center;
+}
+
+#transactions{
+  margin: 0 auto;
+}

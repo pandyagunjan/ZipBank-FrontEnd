@@ -1,0 +1,45 @@
+
+.container{
+  position: relative;
+  min-height: 100vh;
+}
+#titlelink {
+  color: white;
+  background-color: cadetblue;
+  border: 5px solid lightblue;
+  line-height: 100px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 80px;
+  text-align: center;
+  /*cursor: -webkit-grabbing;*/
+  width: 100%;
+  position: relative;
+}
+.login-container{
+  color: black;
+  background-color: cadetblue;
+  border: 5px solid lightblue;
+  font-family: 'Bebas Neue', cursive;
+  text-align: center;
+  /*cursor: -webkit-grabbing;*/
+  width: 100%;
+  position: relative;
+}
+.col-8{
+  margin: auto;
+  display: flex;
+  width: 100%;
+  position: relative;
+  padding-bottom: 20px;
+}
+.slider-image{
+  height: 350px !important;
+  width: 700px !important;
+}
+.footer {
+  bottom: 0;
+  position: absolute;
+  width:100%;
+  height: 30px;
+  background-color: #222222;
+}

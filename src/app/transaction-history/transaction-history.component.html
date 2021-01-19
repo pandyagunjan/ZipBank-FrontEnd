@@ -1,0 +1,25 @@
+<div class="container">
+<br>
+  <br>
+  <table class="table">
+    <thead>
+      <tr id="title">
+        <div id="header">Recent Transactions</div>
+      </tr>
+      <tr>
+        <th class="col1">Transaction Description</th>
+        <th class="col2">Transaction Amount</th>
+        <th class="col3">Transaction Balance</th>
+        <th class="col4">Transaction Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hist of history">
+        <td class="col1">{{hist.transactionDescription}}</td>
+        <td class="col2"> {{hist.transactionAmount | currency}}</td>
+        <td class="col3">{{hist.transactionBalance | currency}}</td>
+        <td class="col4">{{hist.transactionDate | date | uppercase}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

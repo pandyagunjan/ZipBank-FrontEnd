@@ -1,0 +1,40 @@
+<div class="login-wrapper" xmlns="http://www.w3.org/1999/html">
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div>
+        <nav class="navbar-brand"> ZipBank</nav>
+      </div>
+      <ul class="navbar-nav">
+        <li><a *ngIf="true" routerLink="/myaccount" class="nav-link">My Accounts</a></li>
+        <li><a *ngIf="true" routerLink="/myaccount/profile" class="nav-link">My Profile</a></li>
+        <li><a *ngIf="true" (click)="openDeposit()" class="nav-link">Deposit</a></li>
+        <li><a *ngIf="true" (click)="openWithdraw()"class="nav-link">Withdraw</a></li>
+        <li><a *ngIf="numOfAccounts>1" (click)="openTransfer()" class="nav-link">Transfer</a></li>
+        <li><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>
+      </ul>
+    </nav>
+
+    <h1>
+      <div class="title">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        Account Overview
+      </div>
+    </h1>
+
+  </header>
+  <div class="container">
+
+    <div id="inforow">
+      <div id= "accountnumber">
+        Account Number: {{account.accountNumber}}
+      </div>
+      <div id="accountbalance">
+        Account Balance: {{account.balance | currency:'USD'}}
+      </div>
+    </div>
+
+    <div id="transactions">
+      <app-transaction-history></app-transaction-history>
+    </div>
+  </div>

@@ -1,20 +1,39 @@
 #header{
   width: 100%;
   font-size: large;
-  text-align: center;
   background-color: cadetblue ;
   height: 30px;
   display:flex;
+  text-align: center;
+  color: white;
+  margin: 0;
 }
-
+h1{
+  background-color: cadetblue ;
+  margin-top: 0px;
+  display:flex;
+  align-items: center;
+  color: white;
+  text-align: center;
+  font-family: 'Bebas Neue', cursive;
+}
+.title{
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'Bebas Neue', cursive;
+}
 .table{
     width: 100%;
+  margin: 0;
+  align-content: center;
+  text-align: center;
 }
 
-#title{
-    height: 50px;
-    align-items: center;
-}
+/*#title{*/
+/*    height: 50px;*/
+/*    align-items: center;*/
+/*}*/
 
 tr{
     display: flex;
@@ -23,19 +42,24 @@ tr{
 
 .col1{
     width: 30%;
+  text-align: center;
+  align-content: center;
 }
 
 .col2{
-    width: 20%;
-    text-align: right;
+    width: 30%;
+    text-align: center;
+  align-content: center;
 }
 
 .col3{
-    width: 20%;
-    text-align: right;
+    width: 30%;
+    text-align: center;
+  align-content: center;
 }
 
 .col4{
-    width: 20%;
-    text-align: right;
+    width: 30%;
+    text-align: center;
+  align-content: center;
 }

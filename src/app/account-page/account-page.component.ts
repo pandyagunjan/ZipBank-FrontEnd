@@ -24,6 +24,7 @@ export class TransactionHist {
               public transactionAmount: string,
               public transactionBalance: string,
               public transactionDate: string) {}
+
 }
 
 @Component({

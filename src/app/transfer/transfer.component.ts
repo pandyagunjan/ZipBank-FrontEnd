@@ -48,7 +48,7 @@ export class TransferComponent implements OnInit {
   submitTrans: Transactions = {};
   submitTransAccount: TransAccount = {};
   transAcctArray: TransAccount[] = [];
-  urlMyAccount = 'http://localhost:8080/myaccount';
+  urlMyAccount = 'https://unzipbank.herokuapp.com/myaccount';
   constructor(private transactionService: TransactionsService,
               private router: Router,
               public dialogRef: MatDialogRef<TransferComponent>,

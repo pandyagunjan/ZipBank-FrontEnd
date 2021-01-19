@@ -4,8 +4,8 @@
     </div>
 </h1>
 
-<div class = "container"> 
-    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+<div class = "container">
+    <form [formGroup]="profileForm" (ngSubmit)="profileForm.valid && onSubmit()">
 
         <h3>Personal</h3>
         <div class = "clusterContainer">
@@ -33,7 +33,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class = "rowContainers">
                 <div class = "col1">
                     <label>Date Of Birth</label>
@@ -87,7 +87,7 @@
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>
 
         <h3>Address</h3>
         <div class = "clusterContainer">
@@ -285,12 +285,12 @@
                 >Cancel Application</button>
             </div>
             <div id="submitBtn">
-                <button class = "btn btn-warning" type="submit"
+                <button class = "btn btn-warning" type="submit" [disabled]="!profileForm.valid"
                 >Submit</button>
             </div>
         </div>
 
       </form>
-      
+
 </div>
 

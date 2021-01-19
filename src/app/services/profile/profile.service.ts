@@ -8,14 +8,14 @@ export class ProfileService {
 
   constructor(private http: HttpClient) { }
 
-  profileUrl = `http://localhost:8080/myaccount/profile`;
+  profileUrl = `https://unzipbank.herokuapp.com/myaccount/profile`;
 
   retrieveProfile()
   {
     return this.http.get<any>(this.profileUrl);
   }
 
-  addressUrl = `http://localhost:8080/myaccount/profile/address`;
+  addressUrl = `https://unzipbank.herokuapp.com/myaccount/profile/address`;
 
   saveAddress(formData)
   {
@@ -25,7 +25,7 @@ export class ProfileService {
     );
   }
 
-  emailUrl = `http://localhost:8080/myaccount/profile/email`;
+  emailUrl = `https://unzipbank.herokuapp.com/myaccount/profile/email`;
 
   saveEmail(formData)
   {
@@ -35,7 +35,7 @@ export class ProfileService {
     );
   }
 
-  phoneUrl = `http://localhost:8080/myaccount/profile/phone`;
+  phoneUrl = `https://unzipbank.herokuapp.com/myaccount/profile/phone`;
 
   savePhone(formData)
   {

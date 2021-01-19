@@ -37,7 +37,7 @@ export class AccountPageComponent implements OnInit {
   account: Account;
   url: string;
   numOfAccounts: number;
-  urlMyAccount = 'http://localhost:8080/myaccount';
+  urlMyAccount = 'https://unzipbank.herokuapp.com/';
   constructor(private router: Router, public listService: AccountListService,
               public accountService: TransactionHistoryService,
               private dialog: MatDialog,

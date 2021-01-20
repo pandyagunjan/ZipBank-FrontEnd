@@ -9,7 +9,9 @@ h1{
 }
 
 ul{
-  width: 100%
+  width: 100%;
+  position: relative;
+  padding: 0;
 }
 
 .title{
@@ -21,29 +23,39 @@ ul{
 .container{
   margin-top: 0px;
   display:flex;
+  position: relative;
+  min-height: 100vh;
+  margin: 0 auto;
+  width: 100%;
+  align-content: center;
 }
 
 .row{
-  padding:20px;
+  padding:10px;
   margin:10px;
   height: 150px;
-  width: 100%;
+  width: 97%;
   display: flex;
   align-items: center;
   background-color:rgb(245, 239, 239);
 }
 
 .col1{
-  flex: 30%;
+  flex: 25%;
   font-size: larger;
+  padding-left: 20px;
 }
 
 .col2{
   flex: 50%;
+  text-align: center;
 }
 
 .col3{
-  flex: 20%;
+  flex: 25%;
+  align-content: right;
+  text-align: right;
+  padding-right: 20px;
 }
 
 .title {

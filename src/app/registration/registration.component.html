@@ -6,7 +6,8 @@
     </div>
 </h1>
 
-<div class = "container">
+
+<div class = "container"> 
     <form [formGroup]="profileForm" (ngSubmit)="profileForm.valid && onSubmit()">
 
         <h3>Personal</h3>
@@ -278,7 +279,6 @@
                         </div>
                 </div>
             </div>
-
         </div>
 
         <div id = "btnContainer">
@@ -287,8 +287,10 @@
                 >Cancel Application</button>
             </div>
             <div id="submitBtn">
+
                 <button class = "btn btn-warning" type="submit" [disabled]="!profileForm.valid"
                 >Submit</button>
+
             </div>
         </div>
 

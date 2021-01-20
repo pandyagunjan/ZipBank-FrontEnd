@@ -4,7 +4,7 @@
     <div><nav class="navbar-brand"> ZipBank</nav></div>
 
     <ul class="navbar-nav">
-      <li><a *ngIf="true" routerLink="/myaccount/profile/delete" class="nav-link">Delete Profile</a></li>
+      <!-- <li><a *ngIf="true" routerLink="/myaccount/profile/delete" class="nav-link">Delete Profile</a></li> -->
       <li><a *ngIf="true" routerLink="/myaccount" class="nav-link">My Accounts</a></li>
       <li><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>
       <!-- <li><a *ngIf="router.url === '/myaccount'" class="pageTitle">My Accounts</a></li>
@@ -16,15 +16,16 @@
     <!--      <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>-->
     <!--      <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>-->
     <!--    </ul>-->
-
   </nav>
-</header>
+
 <h1>
   <div class = "title"><link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     My Profile
   </div>
 </h1>
+</header>
+
 <div class = container>
     <ul style="list-style-type:none;">
         <div class = row>

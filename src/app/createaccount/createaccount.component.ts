@@ -159,9 +159,9 @@ export class CreateaccountComponent implements OnInit {
   }
 
   onSubmit(){
-    //console.log(this.createAccountForm.value);
+    console.log(this.createAccountForm.value);
     this.setSubmitAccount();
-    //console.log(JSON.stringify(this.submitAccount));
+    console.log(JSON.stringify(this.submitAccount));
     this.registrationService.postToServer(this.url, JSON.stringify(this.submitAccount)).subscribe(
       //response=>alert("account created!")
     );

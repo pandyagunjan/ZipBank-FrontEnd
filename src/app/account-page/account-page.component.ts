@@ -57,21 +57,24 @@ export class AccountPageComponent implements OnInit {
         // console.log(account);
       }
     );
+    if (this.account === undefined){
+      this.router.navigate(['**']);
+    }
   }
 // sorry kyle I needed to make this to test the html
   openDeposit(): void{
     this.dialog.open(DepositComponent);
-    this.dialog.afterAllClosed.subscribe(() => this.getAccount(this.url));
+    this.dialog.afterAllClosed.subscribe(() => location.reload());
    }
 
   openWithdraw(): void{
     this.dialog.open(WithdrawComponent);
-    this.dialog.afterAllClosed.subscribe(() => this.getAccount(this.url));
+    this.dialog.afterAllClosed.subscribe(() => location.reload());
   }
 
   openTransfer(): void{
     this.dialog.open(TransferComponent);
-    this.dialog.afterAllClosed.subscribe(() => this.getAccount(this.url));
+    this.dialog.afterAllClosed.subscribe(() => location.reload());
   }
 
   getAllAccounts()

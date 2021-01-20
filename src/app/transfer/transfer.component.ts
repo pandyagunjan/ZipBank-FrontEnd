@@ -94,7 +94,8 @@ export class TransferComponent implements OnInit {
     this.setSubmitTransfer();
     console.log(JSON.stringify(this.submitTrans));
     console.log(this.url);
-    this.registrationService.putToServer(this.url, JSON.stringify(this.submitTrans)).subscribe();
+    this.registrationService.putToServer(this.url, JSON.stringify(this.submitTrans)).subscribe(
+    );
     location.reload();
   }
 

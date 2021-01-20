@@ -138,7 +138,7 @@ export class CreateaccountComponent implements OnInit {
   setSubmitAccount(){
     console.log(this.useExternalAcct);
     if(this.useExternalAcct){
-      //this.submitTransAccount.accountNumber = this.externalAccountArray.at(this.onChange().get("accountNumber").value;
+      this.submitTransAccount.accountNumber = this.externalAccountArray.at(0).get("accountNumber").value;
       this.submitTransAccount.routingNumber = this.externalAccountArray.at(0).get("routingNumber").value;
     }
     else{
@@ -159,9 +159,9 @@ export class CreateaccountComponent implements OnInit {
   }
 
   onSubmit(){
-    //console.log(this.createAccountForm.value);
+    console.log(this.createAccountForm.value);
     this.setSubmitAccount();
-    //console.log(JSON.stringify(this.submitAccount));
+    console.log(JSON.stringify(this.submitAccount));
     this.registrationService.postToServer(this.url, JSON.stringify(this.submitAccount)).subscribe(
       //response=>alert("account created!")
     );

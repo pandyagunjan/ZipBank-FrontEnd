@@ -1,8 +1,11 @@
 <h1>
     <div class = title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
         Open Account
     </div>
 </h1>
+
 
 <div class = "container"> 
     <form [formGroup]="profileForm" (ngSubmit)="profileForm.valid && onSubmit()">
@@ -33,7 +36,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class = "rowContainers">
                 <div class = "col1">
                     <label>Date Of Birth</label>
@@ -87,7 +90,7 @@
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>
 
         <h3>Address</h3>
         <div class = "clusterContainer">
@@ -284,12 +287,14 @@
                 >Cancel Application</button>
             </div>
             <div id="submitBtn">
-                <button class = "btn btn-warning" type="submit"
-                [disabled] = "!profileForm.valid" >Submit</button>
+
+                <button class = "btn btn-warning" type="submit" [disabled]="!profileForm.valid"
+                >Submit</button>
+
             </div>
         </div>
 
       </form>
-      
+
 </div>
 

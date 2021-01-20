@@ -55,9 +55,9 @@ export class CreateaccountComponent implements OnInit {
   transAcctArray: TransAccount[] = [];
   transArray: Transactions[] = [];
 
-  url = 'http://localhost:8080/myaccount/create';
-  urlMyAccount = 'http://localhost:8080/myaccount';
-  
+  url = 'https://unzipbank.herokuapp.com/myaccount/create';
+  urlMyAccount = 'https://unzipbank.herokuapp.com/myaccount';
+
   constructor(private fb: FormBuilder,
     private dialogRef: MatDialogRef<CreateaccountComponent>,
     private http: HttpClient,

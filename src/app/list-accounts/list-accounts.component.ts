@@ -26,7 +26,7 @@ export class Account {
 export class ListAccountsComponent implements OnInit {
  accounts: Account[];
  message: string;
- url = 'http://localhost:8080/myaccount';
+ url = 'https://unzipbank.herokuapp.com/myaccount';
 
   constructor(public router: Router , public listService: AccountListService, private dialog: MatDialog,
               public authenticationService: AuthenticationService) { }

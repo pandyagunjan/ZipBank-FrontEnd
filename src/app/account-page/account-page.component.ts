@@ -37,7 +37,7 @@ export class AccountPageComponent implements OnInit {
   account: Account;
   url: string;
   numOfAccounts: number;
-  urlMyAccount = 'http://localhost:8080/myaccount';
+  urlMyAccount = 'https://unzipbank.herokuapp.com/myaccount';
   constructor(private router: Router, public listService: AccountListService,
               public accountService: TransactionHistoryService,
               private dialog: MatDialog,
@@ -57,6 +57,9 @@ export class AccountPageComponent implements OnInit {
         // console.log(account);
       }
     );
+    if (this.account === undefined){
+      this.router.navigate(['**']);
+    }
   }
 // sorry kyle I needed to make this to test the html
   openDeposit(): void{

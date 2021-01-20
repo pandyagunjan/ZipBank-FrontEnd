@@ -71,7 +71,7 @@ export class RegistrationComponent implements OnInit{
   constructor(private fb: FormBuilder, private registrationService: RegistrationService, private http: HttpClient, private router: Router) {
   }
 
-  url = 'http://localhost:8080/openaccount';
+  url = 'https://unzipbank.herokuapp.com/openaccount';
 
   ngOnInit(): void{
 

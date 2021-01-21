@@ -6,7 +6,8 @@ import {MatDialogRef} from '@angular/material/dialog';
 import {RegistrationService} from '../services/registration/registration.service';
 import {AccountListService} from '../services/account-list/account-list.service';
 import {TransactionHistoryService} from '../services/transaction/transaction-history.service';
-
+// @ts-ignore
+import {API_URL} from '../app.apiurl';
 export class Account {
   constructor(
     public id: number,
@@ -48,7 +49,7 @@ export class TransferComponent implements OnInit {
   submitTrans: Transactions = {};
   submitTransAccount: TransAccount = {};
   transAcctArray: TransAccount[] = [];
-  urlMyAccount = 'https://unzipbank.herokuapp.com/myaccount';
+  urlMyAccount = `${API_URL}/myaccount`;
   constructor(private transactionService: TransactionsService,
               private router: Router,
               public dialogRef: MatDialogRef<TransferComponent>,

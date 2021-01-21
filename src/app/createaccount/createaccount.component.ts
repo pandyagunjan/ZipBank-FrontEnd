@@ -5,6 +5,8 @@ import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 import {AccountListService} from '../services/account-list/account-list.service';
 import { RegistrationService} from '../services/registration/registration.service';
+// @ts-ignore
+import {API_URL} from '../app.apiurl';
 
 export class Account {
   constructor(
@@ -55,8 +57,8 @@ export class CreateaccountComponent implements OnInit {
   transAcctArray: TransAccount[] = [];
   transArray: Transactions[] = [];
 
-  url = 'https://unzipbank.herokuapp.com/myaccount/create';
-  urlMyAccount = 'https://unzipbank.herokuapp.com/myaccount';
+  url = `${API_URL}/myaccount/create`;
+  urlMyAccount = `${API_URL}/myaccount`;
 
   constructor(private fb: FormBuilder,
     private dialogRef: MatDialogRef<CreateaccountComponent>,

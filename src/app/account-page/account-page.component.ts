@@ -6,8 +6,11 @@ import {AuthenticationService} from '../services/authentication/authenticationse
 import {TransactionHistoryService} from '../services/transaction/transaction-history.service';
 import {MatDialog} from '@angular/material/dialog';
 import {DepositComponent} from '../deposit/deposit.component';
+// tslint:disable-next-line:import-spacing
 import {WithdrawComponent} from  '../withdraw/withdraw.component';
 import {TransferComponent} from '../transfer/transfer.component';
+// @ts-ignore
+import {API_URL} from '../app.apiurl';
 
 export class AccountHist{
 
@@ -37,7 +40,7 @@ export class AccountPageComponent implements OnInit {
   account: Account;
   url: string;
   numOfAccounts: number;
-  urlMyAccount = 'https://unzipbank.herokuapp.com/myaccount';
+  urlMyAccount = `${API_URL}/myaccount`;
   constructor(private router: Router, public listService: AccountListService,
               public accountService: TransactionHistoryService,
               private dialog: MatDialog,
@@ -84,7 +87,7 @@ export class AccountPageComponent implements OnInit {
         // console.log(response);
         // @ts-ignore
         // this.accountsArray = response;
-        this.numOfAccounts = response.length;}
+        this.numOfAccounts = response.length; }
     );
   }
 }

@@ -28,7 +28,7 @@ export class DeleteCustomerComponent implements OnInit {
        {
          this.logOutOnDeletion();
        }
-       else
+       else// if (error === '403')
          {
            this.navigateToList();
          }

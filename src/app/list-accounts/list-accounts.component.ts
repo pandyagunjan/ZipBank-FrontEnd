@@ -4,6 +4,8 @@ import {AccountListService} from '../services/account-list/account-list.service'
 import { MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { CreateaccountComponent } from '../createaccount/createaccount.component';
 import {AuthenticationService} from '../services/authentication/authenticationservice.service';
+// @ts-ignore
+import {API_URL} from '../app.apiurl';
 
 export class Account {
   constructor(
@@ -26,7 +28,7 @@ export class Account {
 export class ListAccountsComponent implements OnInit {
  accounts: Account[];
  message: string;
- url = 'https://unzipbank.herokuapp.com/myaccount';
+ url = `${API_URL}/myaccount`;
 
   constructor(public router: Router , public listService: AccountListService, private dialog: MatDialog,
               public authenticationService: AuthenticationService) { }

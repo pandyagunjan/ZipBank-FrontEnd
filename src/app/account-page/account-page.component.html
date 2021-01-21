@@ -6,7 +6,8 @@
       </div>
       <ul class="navbar-nav">
         <li><a *ngIf="true" routerLink="/myaccount" class="nav-link">My Accounts</a></li>
-        <li><a *ngIf="true" routerLink="/myaccount/profile" class="nav-link">My Profile</a></li>
+        <li><a *ngIf="numOfAccounts>1" (click)="deleteAccount()" class="nav-link">Close Account</a></li>
+        <!-- <li><a *ngIf="true" routerLink="/myaccount/profile" class="nav-link">My Profile</a></li> -->
         <li><a *ngIf="true" (click)="openDeposit()" class="nav-link">Deposit</a></li>
         <li><a *ngIf="true" (click)="openWithdraw()" class="nav-link">Withdraw</a></li>
         <li><a *ngIf="numOfAccounts>1" (click)="openTransfer()" class="nav-link">Transfer</a></li>

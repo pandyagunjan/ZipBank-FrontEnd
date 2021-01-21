@@ -64,3 +64,7 @@ tbody{
   margin: 0 auto;
   text-align: center;
 }
+
+li{
+  cursor: pointer;
+}

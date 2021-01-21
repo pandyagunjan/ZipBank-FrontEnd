@@ -3,11 +3,12 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {API_URL} from '../../app.apiurl';
+import {Router} from '@angular/router'
 @Injectable({
   providedIn: 'root'
 })
 export class AccountListService {
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private router: Router) { }
 
   // tslint:disable-next-line:typedef
   retrieveAllAccounts(url)
@@ -15,11 +16,17 @@ export class AccountListService {
     return this.http.get<Account[]>(url);
   }
 
+  deleteAccount()
+  {
+    return this.http.delete(`${API_URL}${this.router.url}/delete`).pipe(catchError(this.handleError));
+  }
+
   // tslint:disable-next-line:typedef
   deleteProfile()
   {
     return this.http.delete(`${API_URL}/myaccount/profile/delete`).pipe(catchError(this.handleError));
   }
+
   // tslint:disable-next-line:typedef
   handleError(error: HttpErrorResponse) {
     let errorStatus = '';
@@ -37,6 +44,9 @@ export class AccountListService {
       else if (`${error.status}` === '403'){
         alert('Profile cannot be deleted , accounts with balance present');
        }
+      else if (`${error.status}` === '500'){
+        alert('Balance must be zero prior to closing account')
+      }
     }
     return throwError(errorStatus);
   }

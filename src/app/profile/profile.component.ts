@@ -52,9 +52,9 @@ export class ProfileComponent implements OnInit {
 
   }
 
-  isHomeRoute(){
-    return this.router.url === '/myaccount/profile';
-  }
+  // isHomeRoute(){
+  //   return this.router.url === '/myaccount/profile';
+  // }
 
   getProfile()
   {

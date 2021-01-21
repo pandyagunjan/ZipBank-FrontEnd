@@ -43,6 +43,7 @@
 }
 .login-container label input{
   color: black;
+
 }
 
 .title {
@@ -75,11 +76,11 @@
 }
 .input-container {
   font-family: 'Bitter', serif; 
-  width: 18%;
+  width: 21%;
 }
 #UserNPassLink {
   font-family: 'Anton', sans-serif;
-  margin-right: 12%;
+  margin-right: 14%;
 }
 .footer {
   bottom: 0;

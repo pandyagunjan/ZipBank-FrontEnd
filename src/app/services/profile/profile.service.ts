@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { API_URL} from '../../app.apiurl';
 
 @Injectable({
   providedIn: 'root'
@@ -8,14 +9,14 @@ export class ProfileService {
 
   constructor(private http: HttpClient) { }
 
-  profileUrl = `https://unzipbank.herokuapp.com/myaccount/profile`;
+  profileUrl =   `${API_URL}/myaccount/profile`;
 
   retrieveProfile()
   {
     return this.http.get<any>(this.profileUrl);
   }
 
-  addressUrl = `https://unzipbank.herokuapp.com/myaccount/profile/address`;
+  addressUrl =   `${API_URL}/myaccount/profile/address`;
 
   saveAddress(formData)
   {
@@ -25,7 +26,7 @@ export class ProfileService {
     );
   }
 
-  emailUrl = `https://unzipbank.herokuapp.com/myaccount/profile/email`;
+  emailUrl =   `${API_URL}/myaccount/profile/email`;
 
   saveEmail(formData)
   {
@@ -35,7 +36,7 @@ export class ProfileService {
     );
   }
 
-  phoneUrl = `https://unzipbank.herokuapp.com/myaccount/profile/phone`;
+  phoneUrl =   `${API_URL}/myaccount/profile/phone`;
 
   savePhone(formData)
   {

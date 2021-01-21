@@ -6,6 +6,7 @@ import {MatDialogRef} from '@angular/material/dialog';
 import {RegistrationService} from '../services/registration/registration.service';
 import {AccountListService} from '../services/account-list/account-list.service';
 import {TransactionHistoryService} from '../services/transaction/transaction-history.service';
+import { API_URL} from '../app.apiurl';
 
 export class Account {
   constructor(
@@ -48,7 +49,7 @@ export class TransferComponent implements OnInit {
   submitTrans: Transactions = {};
   submitTransAccount: TransAccount = {};
   transAcctArray: TransAccount[] = [];
-  urlMyAccount = 'http://localhost:8080/myaccount';
+  urlMyAccount =   `${API_URL}/myaccount`;
   constructor(private transactionService: TransactionsService,
               private router: Router,
               public dialogRef: MatDialogRef<TransferComponent>,

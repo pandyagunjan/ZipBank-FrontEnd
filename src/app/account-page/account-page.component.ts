@@ -8,6 +8,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {DepositComponent} from '../deposit/deposit.component';
 import {WithdrawComponent} from  '../withdraw/withdraw.component';
 import {TransferComponent} from '../transfer/transfer.component';
+import { API_URL} from '../app.apiurl';
 
 export class AccountHist{
 
@@ -37,7 +38,7 @@ export class AccountPageComponent implements OnInit {
   account: Account;
   url: string;
   numOfAccounts: number;
-  urlMyAccount = 'http://localhost:8080/myaccount';
+  urlMyAccount = `${API_URL}/myaccount`;
   constructor(private router: Router, public listService: AccountListService,
               public accountService: TransactionHistoryService,
               private dialog: MatDialog,
@@ -83,5 +84,18 @@ export class AccountPageComponent implements OnInit {
         // this.accountsArray = response;
         this.numOfAccounts = response.length;}
     );
+  }
+
+  deleteAccount(){
+    this.listService.deleteAccount().subscribe(
+      response=>{
+        this.navigateToMyAccount();
+      }
+    );
+  }
+
+  navigateToMyAccount()
+  {
+   this.router.navigate(['/myaccount']);
   }
 }

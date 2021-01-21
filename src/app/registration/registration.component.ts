@@ -5,6 +5,7 @@ import { RegistrationService} from '../services/registration/registration.servic
 import { Validators } from '@angular/forms';
 import { HttpClient} from '@angular/common/http';
 import { Router} from '@angular/router';
+import { API_URL} from '../app.apiurl';
 
 export class newUser{
   firstName?: string;
@@ -71,7 +72,7 @@ export class RegistrationComponent implements OnInit{
   constructor(private fb: FormBuilder, private registrationService: RegistrationService, private http: HttpClient, private router: Router) {
   }
 
-  url = 'http://localhost:8080/openaccount';
+  url =   `${API_URL}/openaccount`;
 
   ngOnInit(): void{
 

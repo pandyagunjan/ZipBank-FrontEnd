@@ -9,7 +9,8 @@
   margin: 0;
 }
 h1{
-  background-color: cadetblue ;
+  background-color: rgb(52, 58, 64);
+  border: 5px solid cadetblue ;
   margin-top: 0px;
   display:flex;
   align-items: center;

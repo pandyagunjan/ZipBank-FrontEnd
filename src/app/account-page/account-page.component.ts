@@ -58,9 +58,9 @@ export class AccountPageComponent implements OnInit {
         // console.log(account);
       }
     );
-    if (this.account === undefined){
-      this.router.navigate(['**']);
-    }
+    // if (this.account === undefined){
+    //   this.router.navigate(['**']);
+    // }
   }
 // sorry kyle I needed to make this to test the html
   openDeposit(): void{

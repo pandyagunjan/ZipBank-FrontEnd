@@ -1,10 +1,15 @@
 
 h1{
-  background-color: cadetblue ;
-  margin-top: 0px;
-  height: 50px;
-  display:flex;
-  align-items: center;
+  color: white;
+  /* background-color: cadetblue; */
+  background-color: rgb(52, 58, 64);
+  border: 5px solid cadetblue ;
+  line-height: 100px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 80px;
+  text-align: center;
+  width: 100%;
+  position: relative;
 }
 
 ul{
@@ -42,4 +47,9 @@ ul{
 
 .col3{
   flex: 20%;
+}
+
+.btn-warning {
+  background-color: cadetblue;
+  border: darkcyan;
 }

@@ -72,13 +72,30 @@ button:disabled {
     margin-bottom: 20px;
 }
 h1{
-  background-color: cadetblue ;
+  /* background-color: cadetblue ;
   margin-top: 0;
   height: 100px;
   display:flex;
   align-items: center;
   border: 5px solid lightblue;
+  position: relative; */
+
+  color: white;
+  /* background-color: cadetblue; */
+  background-color: rgb(52, 58, 64);
+  border: 5px solid cadetblue ;
+  line-height: 100px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 80px;
+  text-align: center;
+  width: 100%;
   position: relative;
+  padding-top: 2px;
+}
+
+h1 img {
+  max-width: 90px;
+
 }
 
 h3{

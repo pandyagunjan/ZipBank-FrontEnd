@@ -41,7 +41,8 @@ export class DeleteCustomerComponent implements OnInit {
     this.router.navigate(['myaccount']);
   }
 // tslint:disable-next-line:typedef
-logOutOnDeletion() {
+  logOutOnDeletion() {
     this.router.navigate(['logout']);
   }
+  
 }

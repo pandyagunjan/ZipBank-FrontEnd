@@ -6,8 +6,6 @@ import { HttpErrorResponse} from '@angular/common/http'
 import {API_URL} from '../../app.apiurl';
 import {HttpHeaders} from '@angular/common/http';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -27,7 +25,6 @@ export class RegistrationService {
     return this.http.post(url, payload, {headers:this.headers})
       .pipe(catchError(this.handleError))
   }
-
 
   // tslint:disable-next-line:typedef
 
